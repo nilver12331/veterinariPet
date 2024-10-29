@@ -65,3 +65,112 @@ display: flex;
  align-items: center; /* Alinea verticalmente los elementos */
  display: inline-block;
 }
+
+/*Navegacion*/
+
+@media (min-width: 750px) {
+    header {
+        text-align: left;
+    }
+}
+.borrar-curso {
+    background-color: red;
+    border-radius: 50%;
+    padding: 5px 10px;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+ul {
+    list-style: none;
+}
+
+/*sub menu carrito*/
+header{
+    background-color: #3C79B2;
+}
+.submenu {
+    position: relative;
+}
+
+.submenu #servicios {
+    display: none;
+}
+.submenu:hover #servicios {
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 100%;
+    z-index: 1;
+    background-color: white;
+    padding: 20px;
+    min-height: 400px;
+    min-width: 300px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: adds a shadow for visual effect */
+}
+.submenu i{
+    padding: 0.5em 0em;
+    font-size: 1.5em;
+    color: white;
+    transition: color 0.3s ease;
+}
+.submenu i:hover{
+    color: #222222;
+}
+  /* Forms */
+  input {
+    line-height: normal;
+  }
+
+  input[type="checkbox"],
+  input[type="radio"] {
+    box-sizing: border-box; /* 1 */
+    padding: 0; /* 2 */
+  }
+.u-pull-right {
+    float: right;
+}
+
+  /* Tables
+     ========================================================================== */
+
+  table {
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
+
+  td,
+  th {
+    padding: 1em;
+  }
+
+  .vaciar-tabla,.generar-cita{
+    text-align: center;
+    max-width: 12em;
+    min-width: 11em;
+    text-decoration: none;
+    padding: 0.8em;
+    background-color: #252b3b;
+    color: white;
+    border-radius: 15px;
+    box-shadow: 0px 2px 6px #222222;
+  }
+  .vaciar-tabla{
+    background-color: #6C757D;
+    border-color: #6C757D;
+  }
+  .generar-cita{
+    background-color: #38B2AC;
+    border-color: #38B2AC;
+  }
+  .vaciar-tabla:hover{
+    color: white;
+    background-color: #535a60;
+    border-color: #535a60;
+  }
+  .generar-cita:hover{
+    color: white;
+    background-color: #287e79;
+    border-color: #287e79;
+  }

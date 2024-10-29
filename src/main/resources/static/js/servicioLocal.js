@@ -1,28 +1,32 @@
 const listaServicios =document.querySelector('#lista-servicios');
-const tablaServicio=document.querySelector('#tabla-servicio tbody');
-const caServicio=document.querySelector('#servicios');
-const vaciarTablaServicio=document.querySelector('#vaciar-tabla');
-const btngenerarCita=document.querySelector('#generar-cita');
 let listServicios=[]
-cargarEventosListener();
 //mostrar los cursos desde local store
 document.addEventListener('DOMContentLoaded',()=>{
     listServicios=JSON.parse(localStorage.getItem('servicio')) || [];
     serviciosHtml();
+    cargarEventosListener();
 });
 function cargarEventosListener(){
     if (listaServicios) {
         listaServicios.addEventListener('click', agregarServicio);
     }
     //eliminar servicio
-    caServicio.addEventListener('click',eliminarServicio);
+    const vaciarTablaServicio=document.querySelector('#vaciar-tabla');
+    const caServicio=document.querySelector('#servicios');
+    if(caServicio){
+      caServicio.addEventListener('click',eliminarServicio);
+    }
     //vaciar servicio
     vaciarTablaServicio.addEventListener('click',()=>{
         listServicios=[];
         serviciosHtml();
     })
     //validar servico
-    btngenerarCita.addEventListener('click',validarCita);
+    const btngenerarCita=document.querySelector('#generar-cita');
+    if(btngenerarCita){
+        btngenerarCita.addEventListener('click',validarCita);
+    }
+
 }
 
 //function valida si el usuario dio click en el boton agregar-servicio
@@ -66,6 +70,7 @@ function leerDatos(servicio){
 }
 function serviciosHtml(){
     limpiarServicios();
+    const tablaServicio=document.querySelector('#tabla-servicio tbody');
     listServicios.forEach(servicio=>{
         const {id,img,especialidad,nombre,precio}=servicio;
         const row=document.createElement('tr');
@@ -98,6 +103,7 @@ function sincronizarLocalStore(){
 
 function limpiarServicios(){
      //  contenedorServicio.innerHTML='';
+     const tablaServicio=document.querySelector('#tabla-servicio tbody');
      while(tablaServicio.firstChild){
         tablaServicio.removeChild(tablaServicio.firstChild);
     }
