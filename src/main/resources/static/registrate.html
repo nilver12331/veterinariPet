@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+/>
+    <link rel="stylesheet" href="css/registrate2.0.css" />
+    <title>Registrate</title>
+  </head>
+  <body>
+    <div class="container-form">
+      <div class="information-left">
+        <img src="/svg/corriendo.svg" alt="Perrito" class="dog" />
+        <div class="info-childs">
+          <h2>Registrate</h2>
+          <p>
+            Programa tus citas veterinarias, tanto virtuales como presenciales,
+            de forma fácil y rápida para el cuidado de tu mascota.
+          </p>
+        </div>
+      </div>
+      <div class="information-right">
+        <div class="registro-usuario">
+          <h2>Hay que conocernos!</h2>
+          <form  method="POST">
+          <!--Campo nombres completos-->
+          <div class="form-group">
+            <label for="txt-nombre">Ingresa tus nombres </label>
+            <input
+              type="text"
+              id="txt-nombre"
+              name="txt-nombre"
+              class="bordes"
+              required
+            />
+          </div>
+          <br />
+          <!--Campo apellidos completos-->
+          <div class="form-group">
+            <label for="txt-apellidos">Ingresa tus apellidos </label>
+            <input type="text" id="txt-apellidos" name="txt-apellidos" class="bordes" required>
+          </div>
+          <br />
+          <div class="form-group documento">
+          <!--Campo tipo de documento-->
+          <div class="form-group">
+            <label for="documento_identidad">Tipo de documento </label>
+            <select id="documento_identidad" class="bordes" required>
+              <option value="" disabled selected>Seleccione</option>
+              <option value="DNI">DNI</option>
+              <option value="CC">Carnet de Extranjería</option>
+              <option value="PSP">Pasaporte</option>
+            </select>
+          </div>
+          <!--campo numero de documento-->
+          <div class="form-group">
+            <label for="numero_documento">N° de documento </label>
+            <input
+              type="text"
+              id="numero_documento"
+              name="numero_documento"
+              class="bordes"
+              required
+            />
+          </div>
+        </div>
+          <!-- campo direccion -->
+          <div class="form-group">
+            <label for="txt-direccion">Direccion </label>
+            <input
+              type="text"
+              id="txt-direccion"
+              name="txt-direccion"
+              class="bordes"
+              required
+            />
+          </div>
+          <!-- campo Email -->
+          <div class="form-group">
+            <label for="txt-email">Email </label>
+            <input
+              type="email"
+              id="txt-email"
+              name="txt-email"
+              class="bordes"
+              required
+            />
+          </div>
+          <div class="form-group contraseña">
+          <!--ingresar contraseña--->
+          <br/>
+          <div class="form-group">
+            <label for="password">Contraseña:</label>
+            <input type="password" id="password" name="password" required />
+          </div>
+          <!-- Confirmar contraseña -->
+          <div class="form-group">
+            <label for="confirmPassword">Confirmar Contraseña </label>
+            <input
+              type="password"
+              id="confirmPassword"
+              name="confirmPassword"
+              required
+            />
+          </div>
+        </div>
+          <!-- campo telefono -->
+          <div class="form-group">
+            <label for="txt-telefono">Telefono </label>
+            <input
+              type="tel"
+              id="txt-telefono"
+              name="txt-telefono"
+              class="bordes"
+              pattern="9[0-9]{8}"
+              maxlength="9"
+              required
+            />
+          </div>
+          <br>
+          <!--campos para Aceptar politicas-->
+          <div class="terminos-condiciones">
+            <div class="form-group">
+              <input type="checkbox" name="terminos" required/>
+              <label class="terminos">
+                Acepto los Términos y Condiciones y la Política de Privacidad</label>
+            </div>
+            <div class="form-group">
+              <input type="checkbox" name="politica_Veterinaria" />
+              <label class="politica_Veterinaria"
+                >Acepto recibir beneficios, ofertas, publicidad y novedades de PetGuardian</label>
+            </div>
+          </div>
+          <br>
+          <div class="button-container">
+            <button type="submit" onclick="registrar()" class="button">
+                Enviar
+            </button>
+        </div>
+    </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
