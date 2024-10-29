@@ -1,0 +1,25 @@
+package com.example.veterinariPet.entity;
+
+import jakarta.persistence.*;
+import lombok.Data;
+
+import java.util.List;
+
+@Data
+@Entity
+@Table(name="Mascotas")
+public class Mascota {
+    @Id
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    private long idMascota;
+    private String nombreMascota;
+    private double peso;
+    private int edad;
+    private String genero;
+    private String raza;
+    @ManyToOne
+    @JoinColumn(name = "idCliente") // Esta es la columna de clave foránea
+    private Cliente cliente;
+    @OneToMany(mappedBy = "mascota", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Cita> citas;
+}
