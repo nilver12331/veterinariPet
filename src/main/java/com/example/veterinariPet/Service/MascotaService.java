@@ -13,9 +13,7 @@ import java.util.List;
 
 @Service
 public class MascotaService {
-    @Value("${upload.path}")
 
-    private String uploadPath; // Ruta donde se guardarán las imágenes
     @Autowired
     MascotaRepository mascotarepo;
     public List<Mascota> getmasco(){
@@ -31,10 +29,5 @@ public class MascotaService {
         mascotarepo.deleteById(id);
     }
 
-    public String saveImage(MultipartFile file) throws IOException {
-        String fileName = System.currentTimeMillis() + "_" + file.getOriginalFilename();
-        File imageFile = new File(uploadPath + "/" + fileName);
-        file.transferTo(imageFile); // Guarda la imagen en el directorio especificado
-        return fileName; // Devuelve el nombre de la imagen guardada
-    }
+
 }

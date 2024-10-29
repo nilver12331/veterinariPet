@@ -16,7 +16,7 @@ public class MascotaController {
     private MascotaService mascoser;
     // que necesito de esos servicios
     // se muestra en nuestra url
-    @GetMapping
+    @GetMapping("/all")
     public List<Mascota> getAll(){
         return mascoser.getmasco();
     }
@@ -29,15 +29,4 @@ public class MascotaController {
         mascoser.delete(mascotaId);
     }
 
-    @PostMapping
-    public void saveUpdate(@RequestParam("mascota") Mascota mascota, @RequestParam("imagen") MultipartFile imagen) {
-        try {
-            String imageName = mascoser.saveImage(imagen); // Guarda la imagen
-            mascota.setImg(imageName); // Asigna el nombre de la imagen a la mascota
-            mascoser.saveOrUpdate(mascota);
-        } catch (IOException e) {
-            // Manejar la excepción (ej. devolver un mensaje de error)
-            e.printStackTrace();
-        }
-    }
 }

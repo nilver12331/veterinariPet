@@ -28,7 +28,7 @@
   <div class="information-right">
     <div class="registromascota  p-4">
       <h2 class="text-center mb-4">Información de tu mascota</h2>
-      <form id="registrationForm" method="POST">
+      <form id="registrationForm" method="POST" enctype="multipart/form-data">
         <div class="mb-3">
           <label for="txt-nombrem" class="form-label">Nombre de la mascota</label>
           <input type="text" id="nombrem" name="txt-nombrem" class="form-control" required />
@@ -66,37 +66,37 @@
 </div>
 <script>
   document.getElementById('registrationForm').addEventListener('submit', function(event) {
-      event.preventDefault(); // Evita el envío del formulario de manera tradicional
+    event.preventDefault(); // Evita el envío del formulario de manera tradicional
 
-      const formData = {
-          nombre_mascota: document.getElementById('nombrem').value,
-          peso: document.getElementById('peso').value,
-          edad: document.getElementById('edad').value,
-          genero: document.getElementById('genero').value,
-          raza: document.getElementById('raza').value,
-          img: document.getElementById('imagen').value,
-      };
+    const formData = {
+      nombre_mascota: document.getElementById('nombrem').value,
+      peso: document.getElementById('peso').value,
+      edad: document.getElementById('edad').value,
+      genero: document.getElementById('genero').value,
+      raza: document.getElementById('raza').value,
+      img: document.getElementById('imagen').value,
+    };
 
-      // Envío de los datos como JSON
-      fetch('/l/registromascota', {
-          method: 'POST',
-          headers: {
-              'Content-Type': 'application/json', // Especifica el tipo de contenido como JSON
-          },
-          body: JSON.stringify(formData), // Convierte el objeto a JSON
-      })
-      .then(response => {
-          if (response.ok) {
-              alert('Cuenta creada exitosamente');
-              window.location.href="home.html";
-          } else {
-              alert('Error al crear la cuenta');
-          }
-      })
-      .catch(error => {
-          console.error('Error:', error);
-          alert('Error al crear la cuenta');
-      });
+    // Envío de los datos como JSON
+    fetch('/l/registromascota', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json', // Especifica el tipo de contenido como JSON
+      },
+      body: JSON.stringify(formData), // Convierte el objeto a JSON
+    })
+            .then(response => {
+              if (response.ok) {
+                alert('Mascota creada exitosamente');
+                window.location.href="home.html";
+              } else {
+                alert('Error al crear la Mascota');
+              }
+            })
+            .catch(error => {
+              console.error('Error:', error);
+              alert('Error al crear la Mascota');
+            });
   });
 </script>
 </body>
