@@ -1,0 +1,30 @@
+.footer-area .footer-tittle a{
+font-size:20px;
+color:#FFFFFF;
+text-decoration:none;
+}
+.footer-logo img{
+height:60px;
+width: auto;
+}
+.footer-area li{
+list-style:none;
+}
+.footer-tittle h4 {
+    margin-bottom: 10px; /* Espacio debajo del título */
+}
+
+.footer-tittle ul {
+    padding-left: 0; /* Elimina el padding por defecto de la lista */
+    list-style-type: none; /* Elimina los puntos de la lista */
+}
+
+.footer-tittle ul li {
+    margin: 5px 0; /* Espacio entre los elementos de la lista */
+}
+.footer-tittle h4{
+font-weight: bold;
+}
+.footer social{
+margin-top: 20px;
+}
