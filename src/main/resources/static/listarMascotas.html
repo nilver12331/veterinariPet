@@ -81,7 +81,7 @@
                         const mascotaCard = `
                         <div class="col-xs-12 col-sm-6 col-md-4 mt-3">
                             <div class="card" style="width: 18rem;">
-                                <img src="${mascota.img}" class="card-img-top" alt="${mascota.nombre_mascota}">
+                                <img src="/l/registromascota/images/${mascota.img}" class="card-img-top" alt="${mascota.nombre_mascota}">
                                 <div class="card-body">
                                     <h5 class="card-title mt-1">${mascota.nombre_mascota}</h5>
                                     <h3><a href="#">Ver Mascota</a></h3>
@@ -95,7 +95,6 @@
                 }
             }
 
-            // Cargar mascotas al iniciar la página
             loadMascotas();
         });
     </script>

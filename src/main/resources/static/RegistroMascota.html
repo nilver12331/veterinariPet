@@ -28,9 +28,9 @@
   <div class="information-right">
     <div class="registromascota  p-4">
       <h2 class="text-center mb-4">Información de tu mascota</h2>
-      <form id="registrationForm" method="POST" enctype="multipart/form-data">
+      <form id="registrationForm" method="POST" enctype="multipart/form-data" action="/l/registromascota">
         <div class="mb-3">
-          <label for="txt-nombrem" class="form-label">Nombre de la mascota</label>
+          <label for="nombrem" class="form-label">Nombre de la mascota</label>
           <input type="text" id="nombrem" name="txt-nombrem" class="form-control" required />
         </div>
         <div class="mb-3">
@@ -54,7 +54,7 @@
           <input type="text" id="raza" name="raza" class="form-control" required />
         </div>
         <div class="mb-3">
-          <label for="imagen" class="form-label"> Sube la imagen de tu mascota</label>
+          <label for="imagen" class="form-label">Sube la imagen de tu mascota</label>
           <input type="file" id="imagen" name="imagen" class="form-control" accept="image/*" required />
         </div>
         <div class="text-center">
@@ -64,40 +64,7 @@
     </div>
   </div>
 </div>
-<script>
-  document.getElementById('registrationForm').addEventListener('submit', function(event) {
-    event.preventDefault(); // Evita el envío del formulario de manera tradicional
 
-    const formData = {
-      nombre_mascota: document.getElementById('nombrem').value,
-      peso: document.getElementById('peso').value,
-      edad: document.getElementById('edad').value,
-      genero: document.getElementById('genero').value,
-      raza: document.getElementById('raza').value,
-      img: document.getElementById('imagen').value,
-    };
 
-    // Envío de los datos como JSON
-    fetch('/l/registromascota', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json', // Especifica el tipo de contenido como JSON
-      },
-      body: JSON.stringify(formData), // Convierte el objeto a JSON
-    })
-            .then(response => {
-              if (response.ok) {
-                alert('Mascota creada exitosamente');
-                window.location.href="home.html";
-              } else {
-                alert('Error al crear la Mascota');
-              }
-            })
-            .catch(error => {
-              console.error('Error:', error);
-              alert('Error al crear la Mascota');
-            });
-  });
-</script>
 </body>
 </html>
