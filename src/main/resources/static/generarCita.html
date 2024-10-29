@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cita</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="servicioStyle.css">
+    <link rel="stylesheet" href="cita.css">
+</head>
+<body>
+<header id="header" class="header">
+    <div class="container">
+        <div class="row">
+            <div class="col-8">
+                <i class="fa-solid fa-cart-shopping"></i>
+            </div>
+            <div class="col-2 u-pull-right">
+                <ul>
+                    <li class="submenu">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                        <div id="servicios">
+                            <table id="tabla-servicio" class="u-full-width">
+                                <thead>
+                                <tr>
+                                    <th>Imagen</th>
+                                    <th>Especialidad</th>
+                                    <th>Servicio</th>
+                                    <th>Precio</th>
+                                </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                            <div class="w-100 d-flex justify-content-around">
+                                <a href="#" id="generar-cita" class="button u-full-width generar-cita">Generar Citas</a>
+                                <a href="#" id="vaciar-tabla" class="button u-full-width vaciar-tabla">Vaciar Lista Servicio</a>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</header>
+<div class="container">
+    <div class="row">
+        <div class="d-flex col-12 col-sm-12 col-lg-6 flex-column">
+            <h2><span class="mis-mascotas">Mis</span> mascotas</h2>
+            <span class="indicacion-mascota">Selecciona la mascota de la que quieres realizar una cita.</span>
+            <div id="lista-mascota" class="d-flex justify-content-around flex-wrap col-12 col-lg-12 flex-column flex-sm-row">
+                <div class="card col-12 col-sm-5 col-md-5 col-lg-5 mb-4">
+                    <img src="img/OIP.jpeg" alt="imagen de la mascota">
+                    <div class="d-flex flex-column mx-2 my-3">
+                        <div class="d-flex flex-column pb-2 col-12 col-sm-12 col-md-8 col-lg-8">
+                            <span class="fw-bold card-titulo" data-id="1">Roco</span>
+                            <div class="d-none flex-row justify-content-around descripcion-mascota ">
+                                <div class="especificacion-mascota">
+                                    <p>Raza</p>
+                                    <span>Labrador</span>
+                                </div>
+                                <div class="especificacion-mascota">
+                                    <p>Edad</p>
+                                    <span>2 años</span>
+                                </div>
+                                <div class="especificacion-mascota">
+                                    <p>Peso</p>
+                                    <span>8 kg</span>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#" class="elegir-mascota btn btn-primary fw-bold">Escojer</a>
+                    </div>
+                </div>
+                <div class="card col-12 col-sm-5 col-md-5 col-lg-5 mb-4">
+                    <img src="img/OIP.jpeg" alt="imagen de la mascota">
+                    <div class="d-flex flex-column mx-2 my-3">
+                        <div class="d-flex flex-column pb-2 col-12 col-sm-12 col-md-8 col-lg-8">
+                            <span class="fw-bold card-titulo" data-id="2">Neron</span>
+                            <div class="d-none flex-row justify-content-around descripcion-mascota ">
+                                <div class="especificacion-mascota">
+                                    <p>Raza</p>
+                                    <span>Labrador</span>
+                                </div>
+                                <div class="especificacion-mascota">
+                                    <p>Edad</p>
+                                    <span>2 años</span>
+                                </div>
+                                <div class="especificacion-mascota">
+                                    <p>Peso</p>
+                                    <span>8 kg</span>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#" class="elegir-mascota btn btn-primary fw-bold">Escojer</a>
+                    </div>
+                </div>
+                <div class="card col-12 col-sm-5 col-md-5 col-lg-5 mb-4">
+                    <img src="img/OIP.jpeg" alt="imagen de la mascota">
+                    <div class="d-flex flex-column mx-2 my-3">
+                        <div class="d-flex flex-column pb-2 col-12 col-sm-12 col-md-8 col-lg-8">
+                            <span class="fw-bold card-titulo" data-id="3">Sasha</span>
+                            <div class="d-none flex-row justify-content-around descripcion-mascota ">
+                                <div class="especificacion-mascota">
+                                    <p>Raza</p>
+                                    <span>Labrador</span>
+                                </div>
+                                <div class="especificacion-mascota">
+                                    <p>Edad</p>
+                                    <span>2 años</span>
+                                </div>
+                                <div class="especificacion-mascota">
+                                    <p>Peso</p>
+                                    <span>8 kg</span>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#" class="elegir-mascota btn btn-primary fw-bold">Escojer</a>
+                    </div>
+                </div>
+                <div class="card col-12 col-sm-5 col-md-5 col-lg-5 mb-4">
+                    <img src="img/OIP.jpeg" alt="imagen de la mascota">
+                    <div class="d-flex flex-column mx-2 my-3">
+                        <div class="d-flex flex-column pb-2 col-12 col-sm-12 col-md-8 col-lg-8">
+                            <span class="fw-bold card-titulo"  data-id="4">Susan</span>
+                            <div class="d-none flex-row justify-content-around descripcion-mascota ">
+                                <div class="especificacion-mascota">
+                                    <p>Raza</p>
+                                    <span>Labrador</span>
+                                </div>
+                                <div class="especificacion-mascota">
+                                    <p>Edad</p>
+                                    <span>2 años</span>
+                                </div>
+                                <div class="especificacion-mascota">
+                                    <p>Peso</p>
+                                    <span>8 kg</span>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#" class="elegir-mascota btn btn-primary fw-bold">Escojer</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="div-respuesta d-flex col-12 col-sm-12 col-lg-6 flex-column">
+            <div class="contenedor-respuesta">
+                <span class="alerta-mascota">Ninguna mascota seleccionada</span>
+                <div class="resultado-img">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
