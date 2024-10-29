@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Covered+By+Your+Grace&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Staatliches&display=swap');
+h2{
+    color: #3C79B2;
+    font-family: "Open Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 800;
+    font-style: normal;
+    font-variation-settings:
+    "wdth" 100;
+    font-size: 4em;
+}
+.card{
+    box-shadow: 2px 2px 12px #224363;
+    border-radius: 12px;
+    overflow: hidden;
+    animation: slideDown 0.5s ease-out;
+    opacity: 0; /* Inicialmente invisibles */
+}
+.especificacion-mascota p{
+    color: rgb(149, 152, 152);
+    padding: 0;
+    margin: 0;
+}
+.especificacion-mascota span{
+   font-weight: bold;
+}
+.card-titulo{
+    font-size: 1.5em;
+    padding-left: 0.3em;
+}
+.elegir-mascota{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border-radius: 10px;
+    width: 100%;
+    max-height: 3em;
+    background-color: #03A9F4;
+    border-color: #03A9F4;
+}
+.card img{
+    transition: transform 0.3s ease;
+}
+.card img:hover{
+    transform: scale(1.1);
+}
+.mis-mascotas{
+    color: #222222; 
+}
+.indicacion-mascota{
+    font-family: "Open Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+    font-variation-settings:
+    "wdth" 100;
+    font-size: 22px;
+}
+#lista-mascota {
+    margin-top: 1em;
+    padding-top: 2em; 
+    border-radius: 25px;
+    background-image: 
+        linear-gradient(rgba(60, 121, 178, 0.4), rgba(60, 121, 178, 0.4)), /* overlay rojo */
+        url(https://static.wixstatic.com/media/c31aa2_3bca2a9e13b0422f9d995c137c867ff7~mv2.jpg/v1/fill/w_597,h_597,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/c31aa2_3bca2a9e13b0422f9d995c137c867ff7~mv2.jpg);
+    background-attachment: fixed;
+    box-shadow: 0px 2px 8px #224363;
+}
+
+/*animaciones */
+@keyframes slideDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.card-loaded {
+    opacity: 1;
+}
+.div-respuesta{
+    padding-top: 8.2em;
+}
+.contenedor-respuesta{
+    background-color: #ebebeb;
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}

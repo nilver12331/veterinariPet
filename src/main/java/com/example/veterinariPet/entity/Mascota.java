@@ -17,6 +17,7 @@ public class Mascota {
     private int edad;
     private String genero;
     private String raza;
+    private String img;
     @ManyToOne
     @JoinColumn(name = "idCliente") // Esta es la columna de clave foránea
     private Cliente cliente;
