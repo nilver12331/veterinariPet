@@ -59,41 +59,46 @@
     </div>
     <!--END HERO-->
 
-    <!--LIST-->
+    <!-- Contenido de la página -->
     <div class="team-area section-padding30">
         <div class="container">
-            <div class="row ">
-                <div class="col-xs-12 col-sm-12 col-md-4 mt-3">
-                    <div class="card  " style="width: 18rem;">
-                        <img src="img/perro" class="card-img-top " style="height: 290.85px;" alt="...">
-                        <div class="card-body team-caption">
-                            <h5 class="card-title mt-1">Rocky</h5>
-                            <h3><a href="#">Ver Mascota</a></h3>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xs-12 col-sm-12 col-md-4 mt-3">
-                    <div class="card" style="width: 18rem;">
-                        <img src="img/gallery2.png" class="card-img-top " style="height: 290.85px;" alt="...">
-                        <div class="card-body team-caption">
-                            <h5 class="card-title mt-1">Bruno</h5>
-                            <h3><a href="#">Ver Mascota</a></h3>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xs-12 col-sm-12 col-md-4 mt-3">
-                    <div class="card" style="width: 18rem;">
-                        <img src="img/gallery1.png" class="card-img-top " style="height: 290.85px;" alt="...">
-                        <div class="card-body team-caption">
-                            <h5 class="card-title mt-1">Luna</h5>
-                            <h3><a href="#">Ver Mascota</a></h3>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <div id="mascotas-list" class="container mt-4 row"></div>
         </div>
     </div>
-    <!--END LIST-->
+
+    <!-- Script para cargar y mostrar mascotas -->
+    <script>
+        document.addEventListener("DOMContentLoaded", async function() {
+            async function loadMascotas() {
+                try {
+                    const response = await fetch('/l/registromascota/all');
+                    if (!response.ok) throw new Error('Error al obtener la lista de mascotas');
+
+                    const mascotas = await response.json();
+                    const mascotasList = document.getElementById('mascotas-list');
+
+                    mascotas.forEach(mascota => {
+                        const mascotaCard = `
+                        <div class="col-xs-12 col-sm-6 col-md-4 mt-3">
+                            <div class="card" style="width: 18rem;">
+                                <img src="/l/registromascota/images/${mascota.img}" class="card-img-top" alt="${mascota.nombre_mascota}">
+                                <div class="card-body">
+                                    <h5 class="card-title mt-1">${mascota.nombre_mascota}</h5>
+                                    <h3><a href="#">Ver Mascota</a></h3>
+                                </div>
+                            </div>
+                        </div>`;
+                        mascotasList.insertAdjacentHTML('beforeend', mascotaCard);
+                    });
+                } catch (error) {
+                    console.error(error);
+                }
+            }
+
+            loadMascotas();
+        });
+    </script>
+
 
     <!--Footer-->
     <footer class="footer">

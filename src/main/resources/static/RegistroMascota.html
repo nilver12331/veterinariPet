@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/registromas.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;700&display=swap" rel="stylesheet"/>
+  <title>Registrate</title>
+</head>
+<body>
+<div class="container-form">
+  <div class="information-left">
+    <img src="img/fondo.png" alt="Perrito" class="dog" />
+    <div class="info-childs">
+      <div class="text-content">
+        <h2>Registro de mascota</h2>
+        <p>
+          Programa tus citas veterinarias, tanto virtuales como presenciales,
+          de forma fácil y rápida para el cuidado de tu mascota.
+        </p>
+      </div>
+      <img src="img/perrofo.png" alt="Perrito encima" class="image-above" />
+    </div>
+  </div>
+  <div class="information-right">
+    <div class="registromascota  p-4">
+      <h2 class="text-center mb-4">Información de tu mascota</h2>
+      <form id="registrationForm" method="POST" enctype="multipart/form-data" action="/l/registromascota">
+        <div class="mb-3">
+          <label for="nombrem" class="form-label">Nombre de la mascota</label>
+          <input type="text" id="nombrem" name="txt-nombrem" class="form-control" required />
+        </div>
+        <div class="mb-3">
+          <label for="peso" class="form-label">Peso</label>
+          <input type="text" id="peso" name="peso" class="form-control" required />
+        </div>
+        <div class="mb-3">
+          <label for="edad" class="form-label">Edad</label>
+          <input type="text" id="edad" name="edad" class="form-control" required />
+        </div>
+        <div class="mb-3">
+          <label for="genero" class="form-label">Género</label>
+          <select id="genero" name="genero" class="form-select" required>
+            <option value="" disabled selected>Seleccione</option>
+            <option value="macho">Macho</option>
+            <option value="hembra">Hembra</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label for="raza" class="form-label">Raza</label>
+          <input type="text" id="raza" name="raza" class="form-control" required />
+        </div>
+        <div class="mb-3">
+          <label for="imagen" class="form-label">Sube la imagen de tu mascota</label>
+          <input type="file" id="imagen" name="imagen" class="form-control" accept="image/*" required />
+        </div>
+        <div class="text-center">
+          <button type="submit" class="btn btn-custom">Registrar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+</body>
+</html>
