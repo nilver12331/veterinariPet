@@ -9,6 +9,10 @@ h2{
     "wdth" 100;
     font-size: 4em;
 }
+.container{
+    padding-top: 5em;
+    padding-bottom: 2em;
+}
 .card{
     box-shadow: 2px 2px 12px #224363;
     border-radius: 12px;
@@ -46,7 +50,8 @@ h2{
     transform: scale(1.1);
 }
 .mis-mascotas{
-    color: #222222; 
+    color: #222222;
+    font-size: 1em;
 }
 .indicacion-mascota{
     font-family: "Open Sans", sans-serif;

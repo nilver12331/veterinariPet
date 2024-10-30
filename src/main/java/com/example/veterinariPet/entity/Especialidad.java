@@ -1,5 +1,6 @@
 package com.example.veterinariPet.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -13,8 +14,8 @@ public class Especialidad {
     private long idEspecialidad;
     private String nombreEspecialidad;
     private String img;
-    @OneToMany(mappedBy = "especialidad")
-    private List<Servicio> servicios;
+    @OneToMany(mappedBy = "especialidad", cascade = CascadeType.ALL) // Relación inversa con TipoServicio
+    private List<TipoServicio> servicios; // Lista de servicios asociados
     @OneToMany(mappedBy = "especialidad")
     private List<Empleado> empleados;
 }

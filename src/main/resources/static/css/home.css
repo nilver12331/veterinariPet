@@ -174,3 +174,7 @@ header{
     background-color: #287e79;
     border-color: #287e79;
   }
+.borrar-servicio{
+    color: tomato !important;
+    font-weight: bold;
+}

@@ -1,5 +1,6 @@
 package com.example.veterinariPet.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -12,7 +13,10 @@ public class TipoServicio {
     private long idTipoServicio;
     private String nombreServicio;
     private double costo;
+    private String descripcion;
+    private String img;
     @ManyToOne
-    @JoinColumn(name = "idEspecialidad", nullable = false)
+    @JoinColumn(name = "idEspecialidad", nullable = false) // Relación con Especialidad
+    @JsonBackReference // Rompe la recursión en la serialización
     private Especialidad especialidad;
 }

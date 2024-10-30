@@ -11,16 +11,19 @@ function cargarEventosListener(){
         listaServicios.addEventListener('click', agregarServicio);
     }
     //eliminar servicio
-    const vaciarTablaServicio=document.querySelector('#vaciar-tabla');
     const caServicio=document.querySelector('#servicios');
     if(caServicio){
       caServicio.addEventListener('click',eliminarServicio);
     }
     //vaciar servicio
-    vaciarTablaServicio.addEventListener('click',()=>{
-        listServicios=[];
-        serviciosHtml();
-    })
+    const vaciarTablaServicio=document.querySelector('#vaciar-tabla');
+    if(vaciarTablaServicio){
+        vaciarTablaServicio.addEventListener('click',()=>{
+            listServicios=[];
+            serviciosHtml();
+        })
+    }
+
     //validar servico
     const btngenerarCita=document.querySelector('#generar-cita');
     if(btngenerarCita){
@@ -71,28 +74,29 @@ function leerDatos(servicio){
 function serviciosHtml(){
     limpiarServicios();
     const tablaServicio=document.querySelector('#tabla-servicio tbody');
-    listServicios.forEach(servicio=>{
-        const {id,img,especialidad,nombre,precio}=servicio;
-        const row=document.createElement('tr');
-        row.innerHTML=`
-       <td>
-        <img src="${img}" width="100">
-       </td>
-        <td>
-            ${especialidad}
-        </td>
-        <td>
-        ${nombre}
-        </td>
-        <td>
-        ${precio}
-        </td>
-        <td>
-            <a href="#" class="borrar-servicio"  data-id="${id}">X</a>
-        </td>
-        `;
-        tablaServicio.appendChild(row);
-    })
+    if(tablaServicio){
+        listServicios.forEach(servicio=>{
+                const {id,img,especialidad,nombre,precio}=servicio;
+                const row=document.createElement('tr');
+                row.innerHTML=`
+               <td>
+                <img src="${img}" width="100">
+               </td>
+                <td>
+                    ${especialidad}
+                </td>
+                <td>
+                ${nombre}
+                </td>
+                <td>
+                ${precio}
+                </td>
+                <td>
+                    <a href="#" class="borrar-servicio"  data-id="${id}">X</a>
+                </td>
+                `;
+                tablaServicio.appendChild(row);
+    }) }
     //sincronizar con el localStorage
     sincronizarLocalStore();
 }
@@ -104,9 +108,12 @@ function sincronizarLocalStore(){
 function limpiarServicios(){
      //  contenedorServicio.innerHTML='';
      const tablaServicio=document.querySelector('#tabla-servicio tbody');
-     while(tablaServicio.firstChild){
-        tablaServicio.removeChild(tablaServicio.firstChild);
-    }
+     if(tablaServicio){
+       while(tablaServicio.firstChild){
+                 tablaServicio.removeChild(tablaServicio.firstChild);
+             }
+     }
+
 }
 //Mostrar el toast
 
@@ -158,3 +165,4 @@ function mostrarToast(mensaje) {
         }, 3000); // Cambia este valor según el tiempo que quieras que el toast esté visible
     }
 }
+

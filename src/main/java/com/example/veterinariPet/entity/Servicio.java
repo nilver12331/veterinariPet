@@ -17,7 +17,4 @@ public class Servicio {
     @OneToOne
     @JoinColumn(name = "idTipoServicio")
     private TipoServicio tipoServicio;
-    @ManyToOne
-    @JoinColumn(name = "especialidad_id")  // or whatever column name is correct
-    private Especialidad especialidad;
 }

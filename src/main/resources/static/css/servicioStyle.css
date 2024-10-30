@@ -1,3 +1,6 @@
+#lista-servicios{
+    margin-top: 5em;
+}
 .card-style{
     box-shadow: 0px 0px 4px #252b3b;
     overflow: hidden;
@@ -83,7 +86,17 @@
     box-sizing: border-box; /* Incluye el padding y el borde en el ancho total */
     padding: 0.5em 0.5em;
 }
-
+section h1{
+     margin-bottom: 0px !important;
+     padding-bottom: 0px !important;
+}
+/* Reduce el margen superior del wrapper */
+.wrapper {
+    margin-top: 0px; /* Ajusta este valor a tu preferencia */
+}
+.card img{
+    height: 12em;
+}
 /*Animaciones */
 
 @keyframes pulse {
