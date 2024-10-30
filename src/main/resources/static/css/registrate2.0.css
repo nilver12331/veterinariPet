@@ -1,3 +1,5 @@
+
+
 * {
     padding: 0;
     margin: 0;
@@ -18,7 +20,6 @@ body {
 .container-form {
     display: flex;
     flex-direction: column;
-    border-radius: 20px;
     box-shadow: 0 5px 7px rgba(0, 0, 0, .1);
     width: 100vw; /* Pantalla completa */
     height: 100vh; /* Pantalla completa */
@@ -35,12 +36,14 @@ body {
     align-items: center;
     justify-content: center;
     text-align: center;
+    max-height: 800px;
+
 }
 
 .info-childs h2 {
-    font-size: 24px;
+    font-size: 40px;
     font-weight: bold;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
 
 .info-childs p {
@@ -50,9 +53,9 @@ body {
 
 /* Animación de perrito */
 .dog {
-    position: absolute;
+    position:static;
     width: 200px;
-    bottom: 20%;
+    bottom: 50%;
     animation: movimiento 3s linear infinite;
 }
 
@@ -70,9 +73,9 @@ body {
 
 /* Título del registro */
 .registro-usuario h2 {
-    font-size: 20px;
+    font-size: 40px;
     font-weight: bold;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
     color: #1a98ed;
     text-align: center;
 }
