@@ -70,7 +70,7 @@ public class MascotaController {
         // Guardar la mascota en la base de datos
         mascoser.saveOrUpdate(mascota);
 
-        return "redirect:/home.html";
+        return "redirect:index.html";
     }
     @DeleteMapping("/{mascotaId}")
     public void delete(@PathVariable("mascotaId") Long mascotaId){

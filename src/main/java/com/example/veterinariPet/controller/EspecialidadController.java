@@ -1,4 +1,4 @@
-package com.example.veterinariPet.controller;
+package com.example.veterinariPet.Controller;
 
 import com.example.veterinariPet.Entity.Especialidad;
 import com.example.veterinariPet.service.EspecialidadService;

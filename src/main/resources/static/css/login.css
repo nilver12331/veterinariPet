@@ -1,0 +1,19 @@
+ .input-group {
+            margin-bottom: 1rem; /* Espacio entre los campos de entrada */
+        }
+
+
+ .btn-custom {
+            background-color: #51caa6; /* Color de fondo personalizado para los botones */
+            color: #fff; /* Color del texto del botón */
+            width:220px; /* Ajusta el ancho máximo del botón */
+            border-radius: 20px;
+            --bs-btn-hover-bg: #589969;
+        }
+ .btn-opc{
+         background-color: #51caa6; /* Color de fondo personalizado para los botones */
+            color: #fff; /* Color del texto del botón */
+            width:370px; /* Ajusta el ancho máximo del botón */
+            border-radius: 20px;
+            --bs-btn-hover-bg: #589969;
+        }

@@ -1,0 +1,114 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.profile-container {
+    width: 90%;
+    max-width: 500px;
+    background-color: #3d83bd; /* Fondo azul */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    color: white; /* Texto blanco */
+}
+
+h2 {
+    text-align: center;
+    color: white; /* Título en blanco */
+    margin-bottom: 20px;
+}
+
+.profile-info {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+}
+
+.info-group {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-weight: bold;
+    color: white; /* Etiquetas en blanco */
+    margin-bottom: 5px;
+}
+
+.text-input {
+    color: #333; /* Texto de los inputs en color oscuro */
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 4px 8px;
+    width: 100%; /* Para ocupar todo el ancho disponible */
+}
+
+.password-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.password-input {
+    color: #333; /* Texto de la contraseña en color oscuro */
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 4px 8px;
+    width: 100%; /* Para ocupar todo el ancho disponible */
+}
+
+.eye-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    color: #333;
+    transition: color 0.3s ease;
+}
+
+.eye-button:hover {
+    color: #0056b3;
+}
+
+.save-button {
+    margin-top: 20px; /* Espaciado arriba del botón */
+    padding: 10px 20px; /* Relleno */
+    background-color: #51caa6; /* Color de fondo verde */
+    border: none; /* Sin borde */
+    border-radius: 4px; /* Bordes redondeados */
+    color: white; /* Texto blanco */
+    font-size: 1rem; /* Tamaño de fuente */
+    cursor: pointer; /* Cambiar cursor al pasar el mouse */
+    display: inline-block; /* Asegurar que el botón ajuste su tamaño al contenido */
+    transition: background-color 0.3s ease; /* Transición para el hover */
+    text-align: center; /* Alinear texto al centro */
+}
+
+.save-button:hover {
+    background-color: #589969; /* Color más oscuro al pasar el mouse */
+}
+
+.profile-container {
+    display: flex;
+    flex-direction: column; /* Alinear elementos en columna */
+    align-items: center; /* Centrar elementos horizontalmente */
+}
+
+@media (min-width: 768px) {
+    .profile-info {
+        grid-template-columns: 1fr 1fr;
+    }
+}

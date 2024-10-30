@@ -1,0 +1,118 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.profile-container {
+    width: 90%;
+    max-width: 500px;
+    background-color: #3d83bd;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    color: white;
+}
+
+h2 {
+    text-align: center;
+    color: white;
+    margin-bottom: 20px;
+}
+
+.profile-info {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    column-gap: 15px;
+    row-gap: 10px;
+}
+
+.labels-column,
+.content-column {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-weight: bold;
+    padding: 5px;
+    justify-content: center;
+}
+
+.content-label {
+    color: #f9f9f9;
+}
+
+.password-container {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.eye-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    color: #333;
+    transition: color 0.3s ease;
+}
+
+.eye-button:hover {
+    color: #0056b3;
+}
+
+/* Estilos para los botones */
+.button-container {
+    display: flex;
+    justify-content: center; /* Alinear botones al centro del contenedor */
+    gap: 15px; /* Espacio entre los botones */
+    margin-top: 20px;
+}
+
+.modify-button, .logout-button {
+    padding: 10px 20px;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.modify-button {
+    background-color: #51caa6;
+}
+
+.modify-button:hover {
+    background-color: #589969;
+}
+
+.logout-button {
+    background-color: #d9534f;
+}
+
+.logout-button:hover {
+    background-color: #c9302c;
+}
+
+@media (max-width: 768px) {
+    .profile-info {
+        grid-template-columns: 1fr;
+    }
+    .button-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .modify-button, .logout-button {
+        width: 100%; /* Botones se ajustan al ancho en pantallas pequeñas */
+    }
+}
