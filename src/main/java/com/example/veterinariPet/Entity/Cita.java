@@ -1,4 +1,4 @@
-package com.example.veterinariPet.entity;
+package com.example.veterinariPet.Entity;
 
 import jakarta.persistence.*;
 import lombok.Data;

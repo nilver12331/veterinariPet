@@ -1,6 +1,6 @@
 package com.example.veterinariPet.controller;
 
-import com.example.veterinariPet.entity.Cliente;
+import com.example.veterinariPet.Entity.Cliente;
 import com.example.veterinariPet.services.ClienteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

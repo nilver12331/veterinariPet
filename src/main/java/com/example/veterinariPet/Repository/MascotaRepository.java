@@ -1,11 +1,10 @@
-package com.example.veterinariPet.Respository;
+package com.example.veterinariPet.Repository;
 
-import com.example.veterinariPet.entity.Mascota;
+import com.example.veterinariPet.Entity.Mascota;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
-@Repository
+
 public interface MascotaRepository extends JpaRepository<Mascota,Long> {
     Optional<Mascota> findById(Long id);
 }

@@ -1,4 +1,4 @@
-package com.example.veterinariPet.entity;
+package com.example.veterinariPet.Entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;

@@ -1,8 +1,8 @@
 package com.example.veterinariPet.services;
 
 
-import com.example.veterinariPet.entity.Cliente;
-import com.example.veterinariPet.repository.ClienteRepository;
+import com.example.veterinariPet.Entity.Cliente;
+import com.example.veterinariPet.Repository.ClienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

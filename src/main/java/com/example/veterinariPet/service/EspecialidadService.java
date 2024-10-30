@@ -1,6 +1,6 @@
 package com.example.veterinariPet.service;
-import com.example.veterinariPet.entity.Especialidad;
-import com.example.veterinariPet.repository.EspecialidadRepository;
+import com.example.veterinariPet.Entity.Especialidad;
+import com.example.veterinariPet.Repository.EspecialidadRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

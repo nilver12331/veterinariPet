@@ -1,10 +1,9 @@
 package com.example.veterinariPet.Controller;
 
 import com.example.veterinariPet.Service.MascotaService;
-import com.example.veterinariPet.entity.Mascota;
+import com.example.veterinariPet.Entity.Mascota;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
