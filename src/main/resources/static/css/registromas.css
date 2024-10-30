@@ -1,0 +1,87 @@
+* {
+    box-sizing: border-box; /* Asegura que el padding y el borde no afecten el ancho total */
+}
+
+body, html {
+    margin: 0;
+    height: 100%; /* Asegura que el cuerpo ocupe toda la altura de la pantalla */
+    overflow: hidden;
+
+}
+
+.container-form {
+    display: flex; /*para alinear los elementos en fila */
+    height: 100vh;
+    width: 100vw;
+}
+.information-left,
+.information-right {
+    flex: 2;
+    display: flex;
+    flex-direction: column; /* Asegura que los elementos internos se alineen verticalmente */
+    justify-content: center; /* Centra el contenido verticalmente */
+    align-items: center; /* Centra el contenido horizontalmente */
+    position: relative;
+             /* Máxima anchura del contenedor del formulario */
+
+}
+
+.dog {
+    position: absolute; /* Permite que la imagen de fondo ocupe todo el contenedor */
+    top: 0;
+    left: 0;
+    width: 80%;
+    height: 100%;
+    object-fit: cover; /* Asegura que la imagen cubra todo el contenedor sin deformarse */
+    z-index: -1; /* detrás de otros contenidos */
+
+}
+
+.info-childs {
+    position: relative; /*  el contenido de información esté por encima de la imagen */
+    text-align: center;
+    color: white;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra verticalmente los elementos */
+    justify-content: space-between; /* Separa el texto de la imagen */
+    text-align: center;
+    left: -10%;
+}
+
+.text-content {
+    max-width: 70%;
+    margin-top: 600px;
+    font-size: 20px;
+}
+
+.image-above {
+    width: 300px;
+    height: 300px;
+    align-self: center; /* Centra la imagen horizontalmente */
+    margin-bottom: 70px;
+}
+
+.registromascota {
+    padding: 20px;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 900px;
+    background-color: transparent; /* Elimina el fondo del formulario */
+}
+
+.form-control, .form-select {
+    width: 100%; /* Hace que las casillas de entrada sean del 100% del contenedor */
+    padding: 10px; /* Ajusta el padding para que se vea más amplio */
+}
+
+.text-center button {
+    padding: 10px 60px; /* Ajusta el padding del botón */
+
+}
+
+.btn-custom {
+    background-color: #ff6445;
+    color: white;
+}

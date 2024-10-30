@@ -1,0 +1,112 @@
+.card-style{
+    box-shadow: 0px 0px 4px #252b3b;
+    overflow: hidden;
+}
+.btn-op-1{
+    background-color: #ff6445;
+    border-color: #ff4f2b;
+    color: white;
+    font-weight: 600;
+    margin-top: 1em;
+    animation: pulse 1s infinite;
+}
+.btn-op-1:hover{
+    background-color: #222222;
+    border-color: #222222;
+    color: white;
+}
+.img-card{
+    transition: transform 0.3s ease;
+}
+.img-card:hover{
+    transform: scale(1.2);
+}
+.especialidad{
+    
+}
+
+/*Carrusel-servicios*/
+.wrapper {
+    width: 100%;
+    max-width: 1215px;
+    position: relative; /* Permite que los elementos hijos se posicionen en relación a este contenedor */
+    transform: translateX(-100%); /* Comienza fuera de la pantalla a la izquierda */
+    opacity: 0; /* Comienza invisible */
+    animation: slideInRight 1s forwards; /* Llama a la animación */
+}
+
+.carousel {
+    overflow: auto; /* Permite el desplazamiento horizontal */
+    scroll-behavior: smooth; /* Efecto suave al desplazarse */
+    scrollbar-width: none; /* Oculta la barra de desplazamiento en Firefox */
+}
+
+.carousel::-webkit-scrollbar {
+    display: none; /* Oculta la barra de desplazamiento en Chrome */
+}
+
+.btn-prev, .btn-next {
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Alineación correcta en el centro */
+    background-color: #ff4f2b;
+    color: white;
+    font-size: 2.5em;
+    border: none;
+    padding: 10px;
+    border-radius: 50%;
+    outline: 0;
+    cursor: pointer;
+    position: absolute; 
+    top: 50%; 
+    box-shadow: 0px 0px 4px #252b3b;
+    transform: translateY(-50%); 
+    z-index: 10; 
+    animation: pulse 1s infinite;
+}
+
+.btn-prev {
+    left: -70px; 
+}
+
+.btn-next {
+    right: -70px; /* Ajusta la distancia desde el borde derecho */
+}
+.btn-prev:hover, .btn-next:hover{
+    background-color: #e03e24;
+}
+.content{
+    display: grid;
+    grid-gap: 16px; /* Espacio entre los elementos */
+    grid-auto-flow: column; /* Permite el flujo automático en columnas */
+    margin: auto;
+    box-sizing: border-box; /* Incluye el padding y el borde en el ancho total */
+    padding: 0.5em 0.5em;
+}
+
+/*Animaciones */
+
+@keyframes pulse {
+    0% {
+        transform: translateY(-50%) scale(1); /* Estado inicial */
+    }
+    50% {
+        transform: translateY(-50%) scale(1.1); /* Estado "palpitante" */
+    }
+    100% {
+        transform: translateY(-50%) scale(1); /* Volver al estado inicial */
+    }
+}
+@keyframes slideInRight {
+    0% {
+        transform: translateX(-100%); /* Comienza desde la izquierda */
+        opacity: 0; /* Comienza invisible */
+    }
+    100% {
+        transform: translateX(0); /* Termina en su posición original */
+        opacity: 1; /* Se hace completamente visible */
+    }
+}
+
+
+

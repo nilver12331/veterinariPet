@@ -12,6 +12,7 @@ public class Especialidad {
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private long idEspecialidad;
     private String nombreEspecialidad;
+    private String img;
     @OneToMany(mappedBy = "especialidad")
     private List<Servicio> servicios;
     @OneToMany(mappedBy = "especialidad")

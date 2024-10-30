@@ -13,6 +13,7 @@ public class Empleado {
     private String nombreVeterinario;
     private int edad;
     private int teléfono;
+    private String img;
     @OneToOne
     @JoinColumn(name = "idEspecialidad", nullable = false)
     private Especialidad especialidad;

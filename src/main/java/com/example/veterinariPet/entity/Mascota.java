@@ -12,11 +12,12 @@ public class Mascota {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private long idMascota;
-    private String nombreMascota;
+    private String nombre_mascota;
     private double peso;
     private int edad;
     private String genero;
     private String raza;
+    private String img;
     @ManyToOne
     @JoinColumn(name = "idCliente") // Esta es la columna de clave foránea
     private Cliente cliente;
