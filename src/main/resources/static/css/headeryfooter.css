@@ -1,0 +1,276 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
+*{
+box-sizing:border-box;
+margin:0;
+padding:0;
+font-family: "Manrope", sans-serif;
+font-size:20px;
+}
+
+.header {
+    background-color: #3C79B2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 10%;
+    height: 70px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+    position: relative; /* Cambia a relative para que el header no sea fijo */
+    width: 100%;
+    z-index: 1000;
+}
+
+.header .logo{
+cursor:pointer;
+}
+
+.header .logo img {
+height:60px;
+width: auto;
+transition: all 0.3s;
+}
+
+.header .logo img:hover{
+transform: scale(0.9);
+}
+.header .nav-links{
+list-style:none;
+display: inline-block;
+}
+.header .nav{
+display: inline-block;
+}
+.header .nav-links li{
+display: inline-block;
+padding:0 20px;
+transition: all 0.1s;
+margin-top: 20px; /* Centra los botones verticalmente */
+}
+.header .nav-links li:hover{
+transform: scale(1.1);
+}
+.header .nav-links a{
+font-size:20px;
+color:white;
+text-decoration:none;
+}
+.header .nav-links .dropdown-menu a{
+color: black;
+}
+.header .login img{
+height:60px;
+width: auto;
+vertical-align: middle;
+display: flex;
+align-items: center; /* Alinea verticalmente los elementos */
+display: inline-block;
+}
+.footer-area {
+    background-color:#222222; /* Cambia este color al que desees */
+    padding: 50px 0; /* Ajusta el padding según lo necesites */
+    color:white
+}
+.footer-area .footer-tittle a{
+font-size:20px;
+color:#FFFFFF;
+text-decoration:none;
+}
+.footer-logo img{
+height:60px;
+width: auto;
+}
+.footer-area li{
+list-style:none;
+}
+.footer-tittle h4 {
+    margin-bottom: 10px; /* Espacio debajo del título */
+}
+
+.footer-tittle ul {
+    padding-left: 0; /* Elimina el padding por defecto de la lista */
+    list-style-type: none; /* Elimina los puntos de la lista */
+}
+
+.footer-tittle ul li {
+    margin: 5px 0; /* Espacio entre los elementos de la lista */
+}
+.footer-tittle h4{
+font-weight: bold;
+}
+.footer social{
+margin-top:20px;
+}
+
+.carousel-inner img {
+  height: 70vh; /* Ajusta la altura según tus necesidades */
+    object-fit: cover; /* Asegúrate de que las imágenes se ajusten bien */
+}
+.carousel{
+ margin-top: 70px;
+}
+.carousel-control-prev,
+.carousel-control-next {
+    top: 40%; /* Centra los botones verticalmente */
+    transform: translateY(-50%); /* Ajusta el desplazamiento */
+}
+
+.carousel-caption {
+    position: absolute;
+    bottom: 200px; /* Distancia desde el fondo */
+    color: white; /* Color del texto */
+    width:500px;
+
+}
+.carousel-caption.text-start {
+    margin-left: -50px; /* Alinea todo a la izquierda */
+}
+
+.carousel-caption.text-end {
+    right: 800px; /* Alinea todo a la derecha */
+    text-align: right;
+}
+.title {
+    margin-bottom: 10px; /* Espacio entre el título y la descripción */
+}
+
+.description {
+    background-color: rgba(0, 0, 0, 0.7); /* Fondo semitransparente para la descripción */
+    padding: 10px; /* Espaciado interno */
+    border-radius: 5px; /* Bordes redondeados */
+}
+
+
+.carousel-inner img {
+    height: 70vh; /* Ajusta la altura según tus necesidades */
+    object-fit: cover; /* Asegúrate de que las imágenes se ajusten bien */
+}
+
+
+/* Centrando el texto en la sección de Misión */
+.container-fluid .row {
+    margin: 0; /* Elimina márgenes para centrado */
+}
+
+.text-center {
+    text-align: center; /* Centra el texto */
+}
+
+.container2{
+background-color: #252B3B;
+ display: flex;
+    justify-content: center;
+    height:200px;
+    padding:5px;
+}
+
+.container-fluid,
+.row {
+    margin: 0; /* Elimina márgenes en contenedores */
+    padding: 0; /* Elimina padding si es necesario */
+}
+
+.container2 img{
+height: 8vh; /* Ajusta la altura según tus necesidades */
+    object-fit: cover;
+     max-width: 100%;
+    display: inline-block;
+}
+.container2 .row{
+margin:0;
+}
+.single-team{
+color:#FFFFFF;
+text-align:center;
+ margin: 10px 60PX; /* Espacio en todos los lados */
+}
+.team-caption {
+    display: flex; /* Usar flexbox */
+    flex-direction: column; /* Mantener el número arriba */
+    align-items: center; /* Centra el texto */
+    text-align: center; /* Centra el texto en cada bloque */
+    font-weight: bold;
+}
+.text {
+    display: block; /* Asegura que cada texto ocupe su propia línea */
+    margin-top: 0px; /* Un pequeño margen superior */
+    white-space: nowrap; /* Evita que el texto se divida */
+    font-size:20px;
+}
+.team-caption h1{
+font-size:30px;
+
+}
+.team-area{
+margin-top:50px;
+margin-bottom:150px;
+
+}
+.team-area .single-team {
+    position: relative;
+    border: none; /* Bordes alrededor del rectángulo */
+    border-radius: 8px; /* Bordes redondeados */
+    transition: transform 0.3s ease; /* Suavizar el efecto de hover */
+    background-color: #fff; /* Fondo blanco para el contenedor */
+    margin-bottom: 10px; /* Espacio entre los elementos */
+}
+.team-area .single-team:hover {
+    transform: scale(1.05); /* Aumenta un poco el tamaño al pasar el cursor */
+}
+.team-area .team-img {
+width: 100%; /* Asegura que ocupe todo el ancho disponible */
+    height: 100%; /* Ajusta la altura según tus necesidades */
+    overflow: hidden; /* Evita que se desborden las imágenes */
+}
+.team-area .team-img img {
+    width: 100%; /* Ajusta la imagen al 100% del contenedor */
+    height: 500px; /* Mantiene la relación de aspecto */
+    display: block; /* Asegúrate de que no haya espacios debajo de la imagen */
+}
+.team-area .team-caption {
+    background-color:#F9F9F9;
+    color: #000000; /* Color del texto */
+    padding: 15px; /* Espaciado interno */
+    text-align: center; /* Centra el texto */
+    transition: background-color 0.3s ease; /* Suavizar el cambio de fondo */
+}
+.team-area .single-team:hover .team-caption {
+    background-color: rgba(255, 0, 0, 0.8); /* Cambia el color de fondo al pasar el cursor */
+color: white;
+}
+.single-team {
+    width: 100%; /* O un valor fijo como 300px */
+    max-width: 600px; /* Establece un ancho máximo si es necesario */
+    height: 500px;
+}
+.team-area .single-team:hover a {
+    color: white; /* Cambia el color del texto a blanco al pasar el cursor */
+    font-weight: bold;
+}
+.team-area a{
+font-size:20px;
+color:#FFFFFF;
+text-decoration:none;
+color: #000000;
+font-weight: bold;
+}
+/* Ocultar la ventana desplegable por defecto */
+#loginDropdown .dropdown-menu {
+  color: black;
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  min-width: 200px;
+  z-index:1000;
+}
+#loginDropdown:hover .dropdown-menu {
+  display: block;
+}
+
+#loginDropdown .dropdown-menu {
+  padding: 10px 20px;
+}
+
+#loginDropdown .dropdown-item:hover {
+  background-color:#3C79B2;
+}

@@ -1,7 +1,9 @@
 package com.example.veterinariPet.service;
 
-import com.example.veterinariPet.entity.Mascota;
-import com.example.veterinariPet.repository.MascotaRepository;
+import com.example.veterinariPet.Entity.Mascota;
+import com.example.veterinariPet.Repository.MascotaRepository;
+import com.example.veterinariPet.Entity.Mascota;
+import com.example.veterinariPet.Repository.MascotaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,6 +21,7 @@ public class MascotaService {
     //metodo opcinal, puede que pase como q no
 
     public void saveOrUpdate(Mascota mascota){
+
         mascotarepo.save(mascota);
     }
     public void delete(Long id){

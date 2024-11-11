@@ -1,10 +1,10 @@
 package com.example.veterinariPet.controller;
-
 import com.example.veterinariPet.service.MascotaService;
-import com.example.veterinariPet.entity.Mascota;
+import com.example.veterinariPet.Entity.Mascota;
+import com.example.veterinariPet.service.MascotaService;
+import com.example.veterinariPet.Entity.Mascota;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -71,7 +71,7 @@ public class MascotaController {
         // Guardar la mascota en la base de datos
         mascoser.saveOrUpdate(mascota);
 
-        return "redirect:/home.html";
+        return "redirect:index.html";
     }
     @DeleteMapping("/{mascotaId}")
     public void delete(@PathVariable("mascotaId") Long mascotaId){

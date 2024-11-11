@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Perfil de Usuario</title>
+  <link rel="stylesheet" href="css/PerfilCliente.css">
+</head>
+<body>
+<header>
+
+</header>
+<div class="profile-container">
+  <h2>Perfil de Usuario</h2>
+  <div class="profile-info">
+    <!-- Columna de Enunciados -->
+    <div class="labels-column">
+      <label>Nombre:</label>
+      <label>Apellido:</label>
+      <label>Tipo de Documento:</label>
+      <label>Número de Documento:</label>
+      <label>Dirección:</label>
+      <label>Teléfono:</label>
+      <label>Email:</label>
+      <label>Contraseña:</label>
+    </div>
+    <!-- Columna de Contenidos -->
+    <div class="content-column">
+      <label id="nombre">Nombre</label>
+      <label id="apellido">Apellido</label>
+      <label id="tipoDocumento">Tipo de Documento</label>
+      <label id="numeroDocumento">Número de Documento</label>
+      <label id="direccion">Dirección</label>
+      <label id="telefono">Teléfono</label>
+      <label id="email">Email</label>
+      <div class="password-container">
+        <label id="password-label">**********</label>
+        <button onclick="togglePassword()" class="eye-button">👁️</button>
+      </div>
+    </div>
+  </div>
+  <div class="button-container">
+    <button class="modify-button" onclick="window.location.href='ModificarCliente.html'">Modificar Datos</button>
+    <button class="logout-button" onclick="cerrarSesion()">Cerrar Sesión</button>
+  </div>
+</div>
+
+<script>
+    function togglePassword() {
+        const passwordLabel = document.getElementById('password-label');
+        const isHidden = passwordLabel.innerText === '**********';
+        passwordLabel.innerText = isHidden ? localStorage.getItem('passwordCliente') || 'MiContraseñaSecreta' : '**********';
+    }
+
+document.addEventListener("DOMContentLoaded", function() {
+    const emailUsuario = localStorage.getItem('emailUsuario');
+
+    if (emailUsuario) {
+        fetch(`/servicios/cliente/perfil/${emailUsuario}`)
+            .then(response => {
+                if (!response.ok) throw new Error('Error al obtener los datos del cliente');
+                return response.json();
+            })
+            .then(data => {
+                document.getElementById('nombre').innerText = data.nombre_cliente;
+                document.getElementById('apellido').innerText = data.apellido_cliente;
+                document.getElementById('tipoDocumento').innerText = data.tipo_Documento;
+                document.getElementById('numeroDocumento').innerText = data.numero_Documento;
+                document.getElementById('direccion').innerText = data.direccion;
+                document.getElementById('email').innerText = data.email;
+                document.getElementById('telefono').innerText = data.telefono;
+
+                // Guardar la contraseña en localStorage (solo para fines de visualización de la sesión)
+                localStorage.setItem('passwordCliente', data.contraseña || 'MiContraseñaSecreta');
+            })
+            .catch(error => console.error('Error:', error));
+    } else {
+        alert("Por favor, inicie sesión.");
+        window.location.href = "login.html";
+    }
+});
+    function cerrarSesion() {
+        // Elimina los datos del cliente del localStorage para cerrar la sesión
+        localStorage.removeItem('emailUsuario');
+        localStorage.removeItem('passwordCliente');
+        alert("Sesión cerrada exitosamente.");
+        // Redirige al usuario a la página de inicio
+        window.location.href = "index.html";
+    }
+</script>
+
+</body>
+</html>
