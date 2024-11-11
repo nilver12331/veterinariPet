@@ -1,6 +1,6 @@
-package com.example.veterinariPet.Controller;
+package com.example.veterinariPet.controller;
 
-import com.example.veterinariPet.Service.MascotaService;
+import com.example.veterinariPet.service.MascotaService;
 import com.example.veterinariPet.entity.Mascota;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;

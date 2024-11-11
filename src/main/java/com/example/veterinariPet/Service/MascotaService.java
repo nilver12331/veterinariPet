@@ -1,14 +1,10 @@
-package com.example.veterinariPet.Service;
+package com.example.veterinariPet.service;
 
-import com.example.veterinariPet.Respository.MascotaRepository;
 import com.example.veterinariPet.entity.Mascota;
+import com.example.veterinariPet.repository.MascotaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
-import org.springframework.web.multipart.MultipartFile;
 
-import java.io.File;
-import java.io.IOException;
 import java.util.List;
 
 @Service

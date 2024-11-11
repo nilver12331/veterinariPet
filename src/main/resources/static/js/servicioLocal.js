@@ -7,29 +7,29 @@ document.addEventListener('DOMContentLoaded',()=>{
     cargarEventosListener();
 });
 function cargarEventosListener(){
+   setTimeout(()=>{
     if (listaServicios) {
-        listaServicios.addEventListener('click', agregarServicio);
-    }
-    //eliminar servicio
-    const caServicio=document.querySelector('#servicios');
-    if(caServicio){
-      caServicio.addEventListener('click',eliminarServicio);
-    }
-    //vaciar servicio
-    const vaciarTablaServicio=document.querySelector('#vaciar-tabla');
-    if(vaciarTablaServicio){
-        vaciarTablaServicio.addEventListener('click',()=>{
-            listServicios=[];
-            serviciosHtml();
-        })
-    }
-
-    //validar servico
-    const btngenerarCita=document.querySelector('#generar-cita');
-    if(btngenerarCita){
-        btngenerarCita.addEventListener('click',validarCita);
-    }
-
+           listaServicios.addEventListener('click', agregarServicio);
+       }
+       //eliminar servicio
+       const caServicio=document.querySelector('#servicios');
+       if(caServicio){
+         caServicio.addEventListener('click',eliminarServicio);
+       }
+       //vaciar servicio
+       const vaciarTablaServicio=document.querySelector('#vaciar-tabla');
+       if(vaciarTablaServicio){
+           vaciarTablaServicio.addEventListener('click',()=>{
+               listServicios=[];
+               serviciosHtml();
+           })
+       }
+       //validar servico
+       const btngenerarCita=document.querySelector('#generar-cita');
+       if(btngenerarCita){
+           btngenerarCita.addEventListener('click',validarCita);
+       }
+   },100);
 }
 
 //function valida si el usuario dio click en el boton agregar-servicio
