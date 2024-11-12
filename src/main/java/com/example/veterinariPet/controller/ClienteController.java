@@ -1,6 +1,6 @@
-package com.example.veterinariPet.Controller;
+package com.example.veterinariPet.controller;
 import com.example.veterinariPet.Entity.Cliente;
-import com.example.veterinariPet.Service.ClienteService;
+import com.example.veterinariPet.service.ClienteService;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -72,6 +72,5 @@ public class ClienteController {
             return ResponseEntity.status(HttpStatus.NOT_MODIFIED).body(response);
         }
     }
-
 }
 

@@ -1,4 +1,4 @@
-package com.example.veterinariPet.Service;
+package com.example.veterinariPet.service;
 import com.example.veterinariPet.Entity.Cliente;
 import com.example.veterinariPet.Repository.ClienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;

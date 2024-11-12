@@ -64,12 +64,9 @@ h2{
 }
 #lista-mascota {
     margin-top: 1em;
-    padding-top: 2em; 
+    padding-top: 1em; 
     border-radius: 25px;
-    background-image: 
-        linear-gradient(rgba(60, 121, 178, 0.4), rgba(60, 121, 178, 0.4)), /* overlay rojo */
-        url(https://static.wixstatic.com/media/c31aa2_3bca2a9e13b0422f9d995c137c867ff7~mv2.jpg/v1/fill/w_597,h_597,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/c31aa2_3bca2a9e13b0422f9d995c137c867ff7~mv2.jpg);
-    background-attachment: fixed;
+    background-color: white;
     box-shadow: 0px 2px 8px #224363;
 }
 
@@ -92,11 +89,49 @@ h2{
     padding-top: 8.2em;
 }
 .contenedor-respuesta{
-    background-color: #ebebeb;
     border-radius: 25px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     overflow: hidden;
+}
+.contenedor-cita{
+    border-radius: 15px;
+    background-color: #ebebeb;
+}
+.btn-boton-cita{
+    width: 2.5em;
+    height: 2.5em;
+    border: solid;
+    color: #27272c;
+    font-weight: 800;
+    border-color: #224363;
+    border-radius: 50%;
+    background-color: white;
+}
+.header-wrap{
+    width: 50%;
+}
+.btn-atras{
+    background-color: white;
+}
+.btn-atras,.btn-siguiente{
+    font-weight: 600;
+    margin-left: 1em;
+}
+.btn-atras:hover{
+    background-color: rgb(194, 195, 195);
+}
+.btn-siguiente{
+    color: white;
+    background-color: #27272c;
+}
+.btn-siguiente:hover{
+    color: white;
+    background-color: #000000;
+}
+.alertaMascota{
+    font-weight: bold;
+    padding-bottom: 1em;
 }

@@ -1,17 +1,20 @@
-package com.example.veterinariPet.Controller;
+package com.example.veterinariPet.controller;
 
 import com.example.veterinariPet.Entity.Especialidad;
-import com.example.veterinariPet.service.EspecialidadService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
+import com.example.veterinariPet.service.interfaces.especialidadServiceInterface;
 import java.util.List;
 
 @RestController
 @RequestMapping("/servicios/especialidad")
 public class EspecialidadController {
     @Autowired
-    private EspecialidadService especialidadService;
+    private final especialidadServiceInterface especialidadService;
+    @Autowired
+    public EspecialidadController(especialidadServiceInterface especialidadService) {
+        this.especialidadService = especialidadService;
+    }
     // obtener todas las especialidades
     @GetMapping
     public List<Especialidad> getAllEspecialidades(){
