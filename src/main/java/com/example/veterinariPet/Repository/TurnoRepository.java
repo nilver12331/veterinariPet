@@ -7,5 +7,5 @@ import java.util.List;
 
 public interface TurnoRepository extends JpaRepository<Turno,Long> {
     // Método para obtener todos los turnos de un empleado específico
-    List<Turno> findByEmpleadoId(long empleadoId);
+    List<Turno> findByEmpleadoIdEmpleado(long idEmpleado);
 }

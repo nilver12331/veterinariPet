@@ -281,7 +281,7 @@ function mostrarHtml(mascotaObj) {
                                                 <div class="d-flex justify-content-around flex-wrap col-12 col-lg-12 flex-column flex-sm-row">
                                                     <div class="col-3 px-4 py-3">
                                                         <div class="card">
-                                                            <div class="w-100">
+                                                            <div class="w-100 d-flex justify-content-center align-items-center">
                                                             <img src="img/jhensu.jpg" class="img-fluid" alt="Imagen Especialista">
                                                             </div>
                                                             <div class="card-body">

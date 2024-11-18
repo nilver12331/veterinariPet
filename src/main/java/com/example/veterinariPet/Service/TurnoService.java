@@ -14,8 +14,6 @@ public class TurnoService implements turnoServiceInterface {
     TurnoRepository turnoRepository;
     @Override
     public List<Turno> obtenerTurnosPorEmpleado(long empleadoId) {
-        return turnoRepository.findByEmpleadoId(empleadoId);
+        return turnoRepository.findByEmpleadoIdEmpleado(empleadoId);
     }
-
-
 }
