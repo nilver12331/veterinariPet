@@ -1,5 +1,6 @@
 package com.example.veterinariPet.Entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -20,6 +21,7 @@ public class Mascota {
     private String img;
     @ManyToOne
     @JoinColumn(name = "idCliente") // Esta es la columna de clave foránea
+    @JsonBackReference  // Indica el lado inverso de la relación
     private Cliente cliente;
     @OneToMany(mappedBy = "mascota", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Cita> citas;

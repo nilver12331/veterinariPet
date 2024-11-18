@@ -1,5 +1,6 @@
 package com.example.veterinariPet.service;
 import com.example.veterinariPet.Entity.Cliente;
+import com.example.veterinariPet.service.interfaces.clienteServiceInterface;
 import com.example.veterinariPet.Repository.ClienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -8,33 +9,35 @@ import java.util.Objects;
 import java.util.Optional;
 
 @Service
-public class ClienteService {
+public class ClienteService implements clienteServiceInterface {
 
     @Autowired
     ClienteRepository clienteRepo;
-
+    @Override
     public List<Cliente> getClients() {
         return clienteRepo.findAll();
     }
-
+    @Override
     public Optional<Cliente> getCliente(Long id) {return clienteRepo.findById(id);
     }
-
+    @Override
     public Cliente getClienteById(Long id) {
         return clienteRepo.findById(id)
                 .orElseThrow(() -> new RuntimeException("Cliente no encontrado"));
     }
-
+    @Override
     public void saveOrUpdate(Cliente cliente) {
         clienteRepo.save(cliente);
     }
-
+    @Override
     public void delete(Long id) {
         clienteRepo.deleteById(id);
     }
+    @Override
     public Optional<Cliente> validarCredenciales(String email, String contraseña) {
         return clienteRepo.findByEmailAndContraseña(email, contraseña);
     }
+    @Override
     public Cliente ObtenerUsuario(String email, String contraseña) {
         Optional<Cliente> UsuarioOpcional=clienteRepo.findByEmailAndContraseña(email, contraseña);
         if(UsuarioOpcional.isPresent()){
@@ -45,13 +48,15 @@ public class ClienteService {
         }
         return null;
     }
+    @Override
     public Optional<Cliente> findByEmail(String email) {
         return clienteRepo.findByEmail(email);
     }
-
+    @Override
     public Cliente buscarPorEmail(String email) {
         return clienteRepo.findByEmail(email).orElseThrow(() -> new RuntimeException("Cliente no encontrado"));
     }
+    @Override
     public boolean actualizarCliente(String email, Cliente clienteModificado) {
         Cliente clienteExistente = buscarPorEmail(email);
         boolean isModified = false;

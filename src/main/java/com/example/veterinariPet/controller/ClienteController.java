@@ -1,6 +1,6 @@
 package com.example.veterinariPet.controller;
 import com.example.veterinariPet.Entity.Cliente;
-import com.example.veterinariPet.service.ClienteService;
+import com.example.veterinariPet.service.interfaces.clienteServiceInterface;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -13,9 +13,13 @@ import java.util.*;
 @RestController
 @RequestMapping(path = "servicios/cliente")
 public class ClienteController {
-
     @Autowired
-    private ClienteService clienteService;
+    private final clienteServiceInterface clienteService;
+    @Autowired
+    public ClienteController(clienteServiceInterface clienteService) {
+        this.clienteService = clienteService;
+    }
+
 
     @GetMapping
     public List<Cliente> getAll() {
@@ -72,5 +76,19 @@ public class ClienteController {
             return ResponseEntity.status(HttpStatus.NOT_MODIFIED).body(response);
         }
     }
+    @GetMapping("/usuarioSesion")
+    public ResponseEntity<Map<String, Object>> getUsuarioSesion(HttpSession session) {
+        Cliente cliente = (Cliente) session.getAttribute("usuario");
+        if (cliente != null) {
+            Map<String, Object> response = new HashMap<>();
+            response.put("idCliente", cliente.getIdCliente());
+            response.put("nombre", cliente.getNombre_cliente());
+            return ResponseEntity.ok(response);
+        } else {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+                    .body(Collections.singletonMap("message", "Usuario no autenticado"));
+        }
+    }
+
 }
 

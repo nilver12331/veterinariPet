@@ -1,4 +1,4 @@
-package com.example.veterinariPet.Controller;
+package com.example.veterinariPet.controller;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;

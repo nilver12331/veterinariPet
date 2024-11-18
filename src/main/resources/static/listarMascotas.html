@@ -68,20 +68,30 @@
 
     <!-- Script para cargar y mostrar mascotas -->
     <script>
-        document.addEventListener("DOMContentLoaded", async function() {
+     let idUsuario;
+     document.addEventListener("DOMContentLoaded", async function() {
+            cliente = await obtenerIdCliente();
+            if (cliente) {
+                // Si cliente existe, llama a obtenerListaMascota(cliente) y espera su resultado
+                idUsuario=cliente.idCliente;
+                await loadMascotas();
+            } else {
+                window.location.href="../login.html";
+                return;
+            }
             async function loadMascotas() {
                 try {
-                    const response = await fetch('/l/registromascota/all');
+                    const response = await fetch(`/l/registromascota/cliente/${idUsuario}`);
                     if (!response.ok) throw new Error('Error al obtener la lista de mascotas');
-
                     const mascotas = await response.json();
                     const mascotasList = document.getElementById('mascotas-list');
-
                     mascotas.forEach(mascota => {
+                        console.log(mascota);
                         const mascotaCard = `
                         <div class="col-xs-12 col-sm-6 col-md-4 mt-3">
                             <div class="card" style="width: 18rem;">
-                                <img src="/l/registromascota/images/${mascota.img}" class="card-img-top" alt="${mascota.nombre_mascota}">
+                                <img src="/l/registromascota/images/${mascota.img}" class="card-img-top" alt="${mascota.nombre_mascota}" style="height: 290.85px;"">
+                                
                                 <div class="card-body">
                                     <h5 class="card-title mt-1">${mascota.nombre_mascota}</h5>
                                     <h3><a href="#">Ver Mascota</a></h3>
@@ -94,8 +104,16 @@
                     console.error(error);
                 }
             }
-
-            loadMascotas();
+            async function obtenerIdCliente(){
+            const response= await fetch('/servicios/cliente/usuarioSesion');
+                if (response.ok) {
+                    const usuario = await response.json();
+                    return usuario;
+                } else {
+                    console.error("Error: Usuario no autenticado");
+                    return 0;
+                }
+            }
         });
     </script>
 

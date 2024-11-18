@@ -69,7 +69,20 @@ h2{
     background-color: white;
     box-shadow: 0px 2px 8px #224363;
 }
-
+#lista-empleado {
+    margin-top: 1em;
+    padding-top: 1em; 
+    border-radius: 25px;
+    background-color: white;
+    box-shadow: 0px 2px 8px #224363;
+}
+.formato-contenedor{
+    margin-top: 1em;
+    padding-top: 1em; 
+    border-radius: 25px;
+    background-color: white;
+    box-shadow: 0px 2px 8px #224363;
+}
 /*animaciones */
 @keyframes slideDown {
     0% {
@@ -86,7 +99,7 @@ h2{
     opacity: 1;
 }
 .div-respuesta{
-    padding-top: 8.2em;
+    padding-top: 2em;
 }
 .contenedor-respuesta{
     border-radius: 25px;
@@ -134,4 +147,36 @@ h2{
 .alertaMascota{
     font-weight: bold;
     padding-bottom: 1em;
+}
+.btn-boton-cita-estado{
+    background-color: #27272c;
+    color: white;
+    border-color: black;
+    transition: background-color 0.3s ease;
+}
+.btn-boton-cita-estado:hover{
+    background-color: #3f3f45;
+}
+
+.btn-boton-cita-realizado{
+    background-color: #224363;
+    color: white;
+    transition: background-color 0.3s ease;
+}
+.btn-boton-cita-realizado:hover{
+    background-color: #2f5c89;
+}
+
+.img-especialista{
+    width: 80% !important; 
+}
+.img-especialitas-seleccionado{
+    width:  3em;
+    height: 3em;
+}
+.deletEspecialista{
+    text-decoration: none; /* Quita el subrayado */
+}
+.img-especialita-turno{
+    width: 70%;
 }

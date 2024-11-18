@@ -17,4 +17,9 @@ public class Servicio {
     @OneToOne
     @JoinColumn(name = "idTipoServicio")
     private TipoServicio tipoServicio;
+
+    // Relación con Turno: Un servicio tiene un único turno
+    @OneToOne
+    @JoinColumn(name = "idTurno", nullable = false)
+    private Turno turno;  // Relacionamos el servicio con un turno específico
 }

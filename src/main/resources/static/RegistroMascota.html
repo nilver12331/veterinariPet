@@ -29,6 +29,9 @@
     <div class="registromascota  p-4">
       <h2 class="text-center mb-4">Información de tu mascota</h2>
       <form id="registrationForm" method="POST" enctype="multipart/form-data" action="/l/registromascota">
+        <div>
+          <input type="hidden" id="id-usuario" name="id-usuario" class="form-control" required />
+        </div>
         <div class="mb-3">
           <label for="nombrem" class="form-label">Nombre de la mascota</label>
           <input type="text" id="nombrem" name="txt-nombrem" class="form-control" required />
@@ -63,6 +66,7 @@
       </form>
     </div>
   </div>
+    <script src="js/registrarMascota.js"></script>
 </div>
 
 </body>

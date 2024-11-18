@@ -47,18 +47,19 @@ function eliminarServicio(e){
         //eliminar servicio
         listServicios=listServicios.filter(servicio => servicio.id!==servicioID);
         serviciosHtml();    
+        cargarEventosListener();
   }
 }
 
 //leemos el contenido html del servicio que dimos click
 function leerDatos(servicio){
-    console.log(servicio.querySelector('span').textContent);
     const infoServicio={
         id:servicio.querySelector('h5').dataset.servicioId,
         img:servicio.querySelector('img').src,
         especialidad:servicio.querySelector('h5').dataset.especialidadNombre,
         nombre:servicio.querySelector('h5').textContent,
-        precio:servicio.querySelector('span').textContent
+        precio:servicio.querySelector('span').textContent,
+        idEspecialidad:servicio.querySelector('h5').dataset.especialidadId
     }
     //revisar si el servicio existe
     const  existe=listServicios.some(servicio=>servicio.id==infoServicio.id);
@@ -70,6 +71,7 @@ function leerDatos(servicio){
          mostrarToast('Se agrego correctamente el servicio');
     }
     serviciosHtml();
+    cargarEventosListener();
 }
 function serviciosHtml(){
     limpiarServicios();

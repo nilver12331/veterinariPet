@@ -1,13 +1,11 @@
 package com.example.veterinariPet.controller;
-import com.example.veterinariPet.service.MascotaService;
+import com.example.veterinariPet.Entity.Cliente;
 import com.example.veterinariPet.Entity.Mascota;
-import com.example.veterinariPet.service.MascotaService;
-import com.example.veterinariPet.Entity.Mascota;
+import com.example.veterinariPet.service.interfaces.mascotaServiceInterface;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Paths;
@@ -16,7 +14,12 @@ import java.util.List;
 @RequestMapping(path="l/registromascota")
 public class MascotaController {
     @Autowired
-    private MascotaService mascoser;
+    private  final mascotaServiceInterface  mascoser;
+    @Autowired
+    public MascotaController(mascotaServiceInterface mascoser){
+        this.mascoser=mascoser;
+    }
+    // private MascotaService mascoser;
     // que necesito de esos servicios
     // se muestra en nuestra url
     @GetMapping("/all")
@@ -24,7 +27,8 @@ public class MascotaController {
         return mascoser.getmasco();
     }
     @PostMapping
-    public String saveUpdate(@RequestParam("txt-nombrem") String nombre,
+    public String saveUpdate(@RequestParam("id-usuario") String idCliente,
+                            @RequestParam("txt-nombrem") String nombre,
                              @RequestParam("peso") String peso,
                              @RequestParam("edad") String edad,
                              @RequestParam("genero") String genero,
@@ -64,20 +68,26 @@ public class MascotaController {
         } catch (NumberFormatException e) {
             return "Error: Edad debe ser un número válido";
         }
+        // Convertir edad de String a Long
+        try {
+            long idClient = Long.parseLong(idCliente); // Convertir a long
+            Cliente cliente=new Cliente();
+            cliente.setIdCliente(idClient);
+            mascota.setCliente(cliente);
+        } catch (NumberFormatException e) {
+            return "Error: Edad debe ser un número válido";
+        }
         mascota.setGenero(genero);
         mascota.setRaza(raza);
         mascota.setImg(fileName); // Guarda el nombre de la imagen
-
         // Guardar la mascota en la base de datos
         mascoser.saveOrUpdate(mascota);
-
         return "redirect:index.html";
     }
     @DeleteMapping("/{mascotaId}")
     public void delete(@PathVariable("mascotaId") Long mascotaId){
         mascoser.delete(mascotaId);
     }
-
     @GetMapping("/images/{filename:.+}")
     public void serveFile(@PathVariable String filename, HttpServletResponse response) {
         String filePath = "src/main/resources/uploadimg/" + filename; // Ruta donde se guardan las imágenes
@@ -95,5 +105,8 @@ public class MascotaController {
             response.setStatus(HttpServletResponse.SC_NOT_FOUND);
         }
     }
-
+    @GetMapping("/cliente/{idCliente}")
+    public List<Mascota> getMascotaClienteId(@PathVariable Long idCliente){
+        return mascoser.getMascotasCliente(idCliente);
+    }
 }

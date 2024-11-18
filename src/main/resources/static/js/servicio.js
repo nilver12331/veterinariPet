@@ -86,7 +86,7 @@ async function cargarServicios() {
                 <div class="card card-style item" style="width: 18rem;">
                     <img src="imgEspecialidades/${img}" class="card-img-top img-card" alt="imagen">
                     <div class="card-body d-flex flex-column">
-                        <h5 class="card-title" data-servicio-id="${idTipoServicio}" data-especialidad-nombre="${nombreEspecialidad}">${nombreServicio}</h5>
+                        <h5 class="card-title" data-servicio-id="${idTipoServicio}" data-especialidad-nombre="${nombreEspecialidad}" data-especialidad-id="${idEspecialidad}">${nombreServicio}</h5>
                         <p class="card-text">${textoTruncado}</p>
                         <div class="d-flex flex-row card-tex">
                             <p class="fw-bold">Precio: S/</p><span class="pb-4 fw-bold">${costo}</span>

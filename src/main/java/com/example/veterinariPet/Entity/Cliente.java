@@ -1,5 +1,6 @@
 package com.example.veterinariPet.Entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Data;
 import java.util.List;
@@ -22,5 +23,6 @@ public class Cliente {
     private String contraseña;
     private String telefono;
     @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonManagedReference  // Indica el lado principal de la relación
     private List<Mascota> mascotas;
 }
