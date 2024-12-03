@@ -8,27 +8,28 @@ document.addEventListener('DOMContentLoaded',()=>{
 });
 function cargarEventosListener(){
    setTimeout(()=>{
+    //agregar servicio
     if (listaServicios) {
            listaServicios.addEventListener('click', agregarServicio);
        }
-       //eliminar servicio
-       const caServicio=document.querySelector('#servicios');
-       if(caServicio){
-         caServicio.addEventListener('click',eliminarServicio);
-       }
-       //vaciar servicio
-       const vaciarTablaServicio=document.querySelector('#vaciar-tabla');
-       if(vaciarTablaServicio){
-           vaciarTablaServicio.addEventListener('click',()=>{
-               listServicios=[];
-               serviciosHtml();
-           })
-       }
-       //validar servico
-       const btngenerarCita=document.querySelector('#generar-cita');
-       if(btngenerarCita){
-           btngenerarCita.addEventListener('click',validarCita);
-       }
+    //eliminar servicio
+    const caServicio=document.querySelector('#servicios');
+    if(caServicio){
+        caServicio.addEventListener('click',eliminarServicio);
+    }
+    //vaciar servicio
+    const vaciarTablaServicio=document.querySelector('#vaciar-tabla');
+    if(vaciarTablaServicio){
+        vaciarTablaServicio.addEventListener('click',()=>{
+            listServicios=[];
+            serviciosHtml();
+        })
+    }
+    //validar servico
+    const btngenerarCita=document.querySelector('#generar-cita');
+    if(btngenerarCita){
+        btngenerarCita.addEventListener('click',validarCita);
+    }
    },100);
 }
 

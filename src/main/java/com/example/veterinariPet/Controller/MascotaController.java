@@ -4,12 +4,16 @@ import com.example.veterinariPet.Entity.Mascota;
 import com.example.veterinariPet.service.interfaces.mascotaServiceInterface;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Paths;
 import java.util.List;
+import java.util.Optional;
+
 @RestController
 @RequestMapping(path="l/registromascota")
 public class MascotaController {
@@ -82,7 +86,7 @@ public class MascotaController {
         mascota.setImg(fileName); // Guarda el nombre de la imagen
         // Guardar la mascota en la base de datos
         mascoser.saveOrUpdate(mascota);
-        return "redirect:index.html";
+        return "redirect:/index.html";
     }
     @DeleteMapping("/{mascotaId}")
     public void delete(@PathVariable("mascotaId") Long mascotaId){
@@ -109,4 +113,50 @@ public class MascotaController {
     public List<Mascota> getMascotaClienteId(@PathVariable Long idCliente){
         return mascoser.getMascotasCliente(idCliente);
     }
+    @PutMapping("/{idMascota}")
+    public ResponseEntity<?> updateMascota(
+            @PathVariable Long idMascota,
+            @RequestParam("nombre") String nombre,
+            @RequestParam("peso") double peso,
+            @RequestParam("edad") int edad,
+            @RequestParam("genero") String genero,
+            @RequestParam("raza") String raza,
+            @RequestParam(value = "imagen", required = false) MultipartFile imagen
+    ) {
+        Optional<Mascota> mascotaOptional = mascoser.getmasco().stream().filter(m -> m.getIdMascota() == idMascota).findFirst();
+        if (mascotaOptional.isPresent()) {
+            Mascota mascota = mascotaOptional.get();
+            mascota.setNombre_mascota(nombre);
+            mascota.setPeso(peso);
+            mascota.setEdad(edad);
+            mascota.setGenero(genero);
+            mascota.setRaza(raza);
+
+        /*if (imagen != null && !imagen.isEmpty()) {
+            String uploadDir = "src/main/resources/uploadimg/";
+            String fileName = imagen.getOriginalFilename();
+            try {
+                imagen.transferTo(Paths.get(uploadDir + fileName));
+                mascota.setImg(fileName);
+            } catch (IOException e) {
+                return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error al guardar la imagen");
+            }
+        }*/
+
+            mascoser.saveOrUpdate(mascota);
+            return ResponseEntity.ok("Mascota actualizada exitosamente");
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Mascota no encontrada");
+        }
+    }
+    @GetMapping("/{id}")
+    public ResponseEntity<Mascota> getMascotaById(@PathVariable Long id) {
+        Mascota mascota = mascoser.obtenerPorId(id);
+        if (mascota != null) {
+            return ResponseEntity.ok(mascota);
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+        }
+    }
+
 }

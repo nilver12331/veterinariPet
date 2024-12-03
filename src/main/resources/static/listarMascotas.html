@@ -21,7 +21,7 @@
             color: white;
             text-align: center;
         }
-        /*---- Card ----*/
+        /---- Card ----/
         .card {
             border-radius: 8px;
             margin-top: 0px;
@@ -44,7 +44,20 @@
             text-decoration: none;
             outline: none;
         }
+        .btn-actu {
+        background-color: #ff6445;
+        color: white; /
+        border:none; /*
+        padding: 10px 10px; /* Tamaño del botón */
+        font-size: 16px; /* Tamaño de la fuente */
+        border-radius: 5px; /* Bordes redondeados */
+        transition: background-color 0.3s ease;
+    }
 
+    .btn-actu:hover {
+        background-color: #c82333; /* Cambiar color al pasar el mouse */
+        color: white;
+    }
     </style>
 </head>
 <body>
@@ -86,16 +99,14 @@
                     const mascotas = await response.json();
                     const mascotasList = document.getElementById('mascotas-list');
                     mascotas.forEach(mascota => {
-                        console.log(mascota);
                         const mascotaCard = `
                         <div class="col-xs-12 col-sm-6 col-md-4 mt-3">
                             <div class="card" style="width: 18rem;">
                                 <img src="/l/registromascota/images/${mascota.img}" class="card-img-top" alt="${mascota.nombre_mascota}" style="height: 290.85px;"">
-                                
-                                <div class="card-body">
-                                    <h5 class="card-title mt-1">${mascota.nombre_mascota}</h5>
-                                    <h3><a href="#">Ver Mascota</a></h3>
-                                </div>
+                                    <div class="card-body">
+                                        <h5 class="card-title">${mascota.nombre_mascota}</h5>
+                                         <button class="btn btn-actu" onclick="window.location.href='/editarMascota.html?id=${mascota.idMascota}'">Actualizar</button>
+                                    </div>
                             </div>
                         </div>`;
                         mascotasList.insertAdjacentHTML('beforeend', mascotaCard);
@@ -116,8 +127,6 @@
             }
         });
     </script>
-
-
     <!--Footer-->
     <footer class="footer">
     </footer>

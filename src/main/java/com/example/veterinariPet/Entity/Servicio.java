@@ -14,8 +14,9 @@ public class Servicio {
     @ManyToOne
     @JoinColumn(name = "idCita")
     private Cita cita;
-    @OneToOne
-    @JoinColumn(name = "idTipoServicio")
+
+    @ManyToOne
+    @JoinColumn(name = "idTipoServicio", nullable = false)
     private TipoServicio tipoServicio;
 
     // Relación con Turno: Un servicio tiene un único turno

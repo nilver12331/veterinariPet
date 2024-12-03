@@ -9,4 +9,6 @@ public interface mascotaServiceInterface {
     void saveOrUpdate(Mascota mascota);
     void delete(Long id);
     List<Mascota> getMascotasCliente (Long idCliente);
+
+    Mascota obtenerPorId(Long id); // Obtener una mascota por su ID
 }

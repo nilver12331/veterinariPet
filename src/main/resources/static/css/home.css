@@ -164,6 +164,13 @@ header{
     background-color: #38B2AC;
     border-color: #38B2AC;
   }
+  .generar-pago{
+    background-color: #38B2AC;
+    color: white;
+    font-weight: bold;
+    width: 80%;
+    border-color: #38B2AC;
+  }
   .vaciar-tabla:hover{
     color: white;
     background-color: #535a60;

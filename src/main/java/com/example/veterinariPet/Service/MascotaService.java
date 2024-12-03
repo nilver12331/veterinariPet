@@ -32,4 +32,8 @@ public class MascotaService implements mascotaServiceInterface{
     public List<Mascota> getMascotasCliente (Long idCliente){
         return mascotarepo.findByClienteIdCliente(idCliente);
     }
+    @Override
+    public Mascota obtenerPorId(Long id) {
+        return mascotarepo.findById(id).orElse(null);
+    }
 }

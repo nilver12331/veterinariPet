@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Mascota</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+    .form{
+      background-color: ; /* Azul claro */
+      color: #333; /* Texto gris oscuro */
+      border-radius: 10px; /* Bordes redondeados */
+      border: 2px solid #02295d; /* Borde azul */
+    }
+
+    .custom-save-button {
+      background-color: #3c79b2; /* Verde personalizado */
+      color: white; /* Texto blanco */
+      border: none;
+    }
+
+    .custom-save-button:hover {
+      background-color: #001737;
+    }
+
+    .custom-cancel-button {
+      background-color: #ff6445; /* Rojo personalizado */
+      color: white;
+      border: none;
+    }
+
+    .custom-cancel-button:hover {
+      background-color: #c82333; /* Rojo más oscuro al pasar el mouse */
+    }
+
+  </style>
+</head>
+<body>
+<div class="container d-flex justify-content-center align-items-center" style="height: 100vh;" >
+    <div class="form card p-4 shadow-lg" style="width: 100%; max-width: 500px;">
+        <h3 class="text-center">Editar Mascota</h3>
+        <form id="form-editar-mascota" class="form-editar-mascota">
+            <div class="mb-3">
+                <label for="nombre" class="form-label">Nombre</label>
+                <input type="text" class="form-control input" id="nombre" name="nombre">
+            </div>
+            <div class="mb-3">
+                <label for="peso" class="form-label">Peso</label>
+                <input type="number" step="0.01" class="form-control input" id="peso" name="peso">
+            </div>
+            <div class="mb-3">
+                <label for="edad" class="form-label">Edad</label>
+                <input type="number" class="form-control input" id="edad" name="edad">
+            </div>
+            <div class="mb-3">
+                <label for="genero" class="form-label">Género</label>
+                <input type="text" class="form-control input" id="genero" name="genero">
+            </div>
+            <div class="mb-3">
+                <label for="raza" class="form-label">Raza</label>
+                <input type="text" class="form-control input" id="raza" name="raza">
+            </div>
+            <div class="d-flex justify-content-between">
+                <button type="submit" class="btn btn-success custom-save-button ">Guardar Cambios</button>
+                <button type="button" class="btn btn-danger custom-cancel-button" onclick="history.back()">Cancelar</button>
+            </div>
+        </form>
+    </div>
+</div>
+<script>
+  document.addEventListener("DOMContentLoaded", async function() {
+// Obtener el id de la mascota desde la URL
+const urlParams = new URLSearchParams(window.location.search);
+const idMascota = urlParams.get('id');
+
+      // Obtener los datos de la mascota
+  console.log("ID Mascota: ", idMascota); // Verifica que se esté extrayendo correctamente
+
+  if (!idMascota) {
+    console.error("No se encontró el id de la mascota en la URL.");
+    alert("No se pudo encontrar el id de la mascota.");
+    return;
+  }
+
+  const response = await fetch(`/l/registromascota/${idMascota}`);
+  if (!response.ok) {
+    console.error("Error al obtener los datos de la mascota", response);
+    alert("No se pudieron cargar los datos de la mascota.");
+    return;
+  }
+  const mascota = await response.json();
+  console.log(mascota);
+      // Rellenar el formulario con los datos de la mascota
+      document.getElementById("nombre").value = mascota.nombre_mascota;
+      document.getElementById("peso").value = mascota.peso;
+      document.getElementById("edad").value = mascota.edad;
+      document.getElementById("genero").value = mascota.genero;
+      document.getElementById("raza").value = mascota.raza;
+// Mostrar la imagen actual de la mascota (si es necesario)
+      // Manejar la actualización
+      document.getElementById("form-editar-mascota").addEventListener("submit", async function(event) {
+          event.preventDefault();
+          const formData = new FormData(this);
+          try {
+              const response = await fetch(`/l/registromascota/${idMascota}`, {
+                  method: "PUT",
+                  body: formData,
+              });
+              if (response.ok) {
+                  alert("Mascota actualizada exitosamente");
+                  window.location.href = "listarMascotas.html";
+              } else {
+                  alert("Error al actualizar la mascota");
+              }
+          } catch (error) {
+              console.error(error);
+              alert("Ocurrió un error");
+          }
+      });
+  });
+</script>
+</body>
+</html>
+
+
