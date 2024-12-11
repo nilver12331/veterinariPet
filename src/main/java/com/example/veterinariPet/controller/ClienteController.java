@@ -49,7 +49,10 @@ public class ClienteController {
             Map<String, String> response = new HashMap<>();
             response.put("message", "Login exitoso");
             response.put("nombre", existingCliente.get().getNombre_cliente());
-            session.setAttribute("usuario", clienteService.ObtenerUsuario(cliente.getEmail(), cliente.getContraseña()));
+
+            // Guardar el cliente en la sesión
+            session.setAttribute("usuario", existingCliente.get());
+
             return ResponseEntity.ok(response);
         } else {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED)

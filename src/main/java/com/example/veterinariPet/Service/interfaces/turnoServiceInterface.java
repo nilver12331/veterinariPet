@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface turnoServiceInterface {
     List<Turno> obtenerTurnosPorEmpleado(long empleadoId);
+    Turno cambiarEstadoTurno(long idTurno, int nuevoEstado);
 }

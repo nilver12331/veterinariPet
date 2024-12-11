@@ -5,11 +5,11 @@ import com.example.veterinariPet.service.TurnoService;
 import com.example.veterinariPet.service.interfaces.turnoServiceInterface;
 import com.example.veterinariPet.service.interfaces.mascotaServiceInterface;
 import com.example.veterinariPet.service.interfaces.turnoServiceInterface;
+import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -28,5 +28,15 @@ public class TurnoController {
     @GetMapping("/empleado/{empleadoId}")
     public List<Turno> obtenerTurnosPorEmpleado(@PathVariable long empleadoId) {
         return servicioTurno.obtenerTurnosPorEmpleado(empleadoId);
+    }
+    // Endpoint para cambiar el estado de un turno
+    @PutMapping("/cambiarEstado/{idTurno}")
+    public ResponseEntity<String> cambiarEstadoTurno(@PathVariable long idTurno, @RequestParam int estado) {
+        try {
+            Turno turnoActualizado = servicioTurno.cambiarEstadoTurno(idTurno, estado);
+            return ResponseEntity.ok("Estado del turno actualizado con éxito.");
+        } catch (EntityNotFoundException e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
+        }
     }
 }

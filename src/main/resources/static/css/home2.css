@@ -2,7 +2,7 @@
   height: 70vh; /* Ajusta la altura según tus necesidades */
     object-fit: cover; /* Asegúrate de que las imágenes se ajusten bien */
 }
-.carousel{
+.carousel-home{
  margin-top: 70px;
 }
 .carousel-control-prev,

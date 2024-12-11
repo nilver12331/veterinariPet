@@ -1,0 +1,70 @@
+.contenedor-padre{
+    padding-top: 5em;
+    padding-bottom: 2em;
+}
+.contenedor-padre h1{
+    font-family: "Open Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+    font-variation-settings:
+    "wdth" 100;
+    color: #222222;
+}
+.imagenMascota{
+    border-radius: 50%;
+    border-style: solid;
+    border-color: #3C79B2;
+    border-width: 5px;
+    box-shadow: 2px 2px 12px rgba(0,0, 0, 0.5);
+}
+.color-header-mascota{
+    background-color: #3C79B2;
+    color: white;
+}
+.img-descripcion {
+    width: 150px; /* Ancho fijo */
+    height: auto; /* Altura automática para mantener la proporción */
+    object-fit: cover; /* Asegura que la imagen se ajuste al contenedor sin distorsión */
+    border-radius: 8px; /* Opcional: redondear esquinas */
+    display: block; /* Asegura que se comporte como un bloque para alineación */
+    margin: 0 auto; /* Centra la imagen horizontalmente */
+}
+
+.table-container {
+    max-width: 100%; /* Limita el ancho máximo al 100% del contenedor padre */
+    overflow-x: auto; /* Agrega un scroll horizontal si el contenido es más ancho */
+    border: 1px solid #ddd; /* Opcional: agrega un borde alrededor del contenedor */
+}
+th, td {
+    text-align: center; /* Alineación horizontal */
+    vertical-align: middle; /* Alineación vertical */
+}
+.spanUltimaCita{
+    font-size: 2em;
+}
+.contendero-p{
+    background-color: #F2F2F2;
+    padding-top: 1em;
+    padding-bottom: 2em;
+    box-shadow: 0 -5px 10px rgba(0, 0, 0, 0.2);
+}
+.btnDetalleCita{
+    padding-right: 3em;
+}
+/* Color cuando el acordeón está cerrado */
+.accordion-button:not(.collapsed) {
+    background-color: #3C79B2; /* Color de fondo cuando está abierto */
+    color: white;  /* Color de texto */
+}
+
+/* Color cuando el acordeón está cerrado */
+.accordion-button.collapsed {
+    background-color: #252B3B; /* Color de fondo cuando está cerrado */
+    color: white; /* Color de texto */
+}
+
+/* Agregar una transición suave para cambiar el color */
+.accordion-button {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}

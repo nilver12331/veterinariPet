@@ -22,8 +22,4 @@ public class Turno {
     @JoinColumn(name = "idEmpleado", nullable = false)
     @JsonIgnoreProperties("turnos") // Evita recursión infinita al serializar
     private Empleado empleado;
-    // Relación con Servicio: Un turno tiene un único servicio
-    @OneToOne(mappedBy = "turno")  // Se mapea en la clase Servicio en la propiedad "turno"
-    @JsonIgnoreProperties("turno")
-    private Servicio servicio;
 }

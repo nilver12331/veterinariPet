@@ -4,7 +4,9 @@ const divResultado = document.querySelector('.resultado-img');
 const contenedorResponsivo=document.querySelector('#contenedor-responsivo');
 const btnSiguiente=document.querySelector('.btn-siguiente');
 const btnAtras=document.querySelector('.btn-atras');
+const radiosMetodoPago = document.querySelectorAll('.metodoPago');
 let totalPagar=0;
+let metodoPago=0;
 let mascotaObj = {};
 let empleadoObj={};
 let cliente;
@@ -75,6 +77,20 @@ function eventos(){
     if (generarPago) {
         generarPago.addEventListener('click', checkout);
     } 
+    //Evento metodo de pago
+    radiosMetodoPago.forEach(radio => {
+        radio.addEventListener('change', (event) => {
+            let metodoPagoSeleccionado = event.target.value;  // Cambiar el valor de metodoPago al valor del radio seleccionado
+            switch(metodoPagoSeleccionado){
+                case 'paypal':
+                        metodoPago=1;
+                        console.log(metodoPago);
+                    break;
+                default:
+                        metodoPago = 0;
+            }
+        });
+    });
 }
 function validarEstadosUno(){
     if(estado==1 && Object.keys(mascotaObj).length > 0){
@@ -350,11 +366,12 @@ async function mostrarHtml(mascotaObj) {
                     contenedorResponsivo.innerHTML=htmlListaEspecialistas;
                     cargarCards();
                     eventos();  
+                    console.log(mascotaObj);
         break;
         case 3:
                 //limpiar el html que se encuentra
                 contenedorResponsivo.innerHTML="";
-                if(listaTurnos.length==0){
+                        listaTurnos=[];
                     let listaEmpleadosUnicos = listEmpleados.filter((empleado, index, self) => 
                         index === self.findIndex((e) => e.idEmpleado === empleado.idEmpleado)
                     );
@@ -363,7 +380,6 @@ async function mostrarHtml(mascotaObj) {
                         const listTurno = await obtenerTurnos(empleado);
                         listaTurnos = [...listaTurnos, ...listTurno];
                     }
-                }
 
                 let htmlListaTurnos = "";
                 if(contenedorResponsivo.classList.contains('flex-lg-row')){
@@ -528,7 +544,7 @@ async function mostrarHtml(mascotaObj) {
                                                 </div>
                                              </div>
                                             <div class="col-12 d-flex justify-content-center align-intems-center">
-                                                <button type="submit" id="generar-pago" class="btn generar-pago my-3">Prosesar Pago</button>
+                                                <button type="submit" id="generar-pago" class="btn generar-pago my-3">Procesar Pago</button>
                                             </div>
                                              <div class="col-12 d-flex justify-content-center align-intems-center">
                                                 <div id="paypal-button-container"></div>
@@ -690,6 +706,7 @@ function especialidadSinDuplicidad(listServicios){
 }
 
 function checkout(){
+   
     let selectedPaymentMethod = document.querySelector('input[name="payment-method"]:checked');
         if (selectedPaymentMethod) {
             methodPaid=selectedPaymentMethod.value;
@@ -712,14 +729,35 @@ function checkout(){
                         return actions.order.capture().then(function(details) {
                             
                             if(details.status == "COMPLETED"){
-    
-                                //Generar la orden en la Base de datos
-                                console.log("agregando cita base de datos");
-                                window.location.href = "index.html";
-                                //newOrder("paypal", "pending", details.id, total);
-    
+                               /* window.location.href = "index.html";
+                                //newOrder("paypal", "pending", details.id, total);*/
+                                let JSONCita = {
+                                    descripcion: "-", 
+                                    fecha: new Date().toISOString(), // Formato ISO 8601 para la fecha
+                                    totalPagar: totalPagar,
+                                    mascota:{
+                                        idMascota: Number(mascotaObj.id),  // idMascota es correcto si se refiere al identificador de la mascota
+                                    },
+                                    metodoPago:{
+                                        idMetodoPago: 1  // idMetodoPago es correcto si se refiere al identificador del método de pago
+                                    },
+                                    servicios: listaTurnosSeleccionados.map(servicio => {
+                                        const { nombreServicio, idTipoServicio, idTurno } = servicio;
+                                        return {
+                                            descripcion: nombreServicio || "",  // Descripción del servicio (puede ser vacía)
+                                            tipoServicio:{
+                                                idTipoServicio: Number(idTipoServicio),  // Identificador del tipo de servicio
+                                            },
+                                            turno:{
+                                                idTurno: Number(idTurno)  // Identificador del turno
+                                            } 
+                                        };
+                                    })
+                                };
+                                
+                                enviarCita(JSONCita);  // Llamar a la función para enviar la cita
                             }
-    
+                            
                             return false;
                            
                         });
@@ -752,3 +790,33 @@ function checkout(){
         }
     }
 
+// Función para guardar cita
+async function enviarCita(JSONCita) {
+    try {
+        // Enviar los datos al servidor utilizando fetch
+        const response = await fetch('http://localhost:8080/servicios/cita/crear', {
+            method: 'POST', // Método HTTP
+            headers: {
+                'Content-Type': 'application/json', // Especifica que estamos enviando datos en formato JSON
+            },
+            body: JSON.stringify(JSONCita), // Convierte el objeto a JSON para enviarlo en el cuerpo de la solicitud
+        });
+
+        // Verificar si la respuesta fue exitosa (status 200-299)
+        if (!response.ok) {
+            throw new Error(`Error en la solicitud: ${response.statusText}`);
+        }
+
+        // Obtener la respuesta en formato JSON (si es necesario)
+        const data = await response.json();
+
+        // Aquí puedes manejar la respuesta del servidor
+        console.log('Cita guardada con éxito:', data);
+        /*localStorage.setItem('citaRegistroMensaje', "Su cita se registró correctamente");*/
+            window.location.href = "historialCitas.html"; 
+            localStorage.removeItem('servicio');
+    } catch (error) {
+        // Manejo de errores en caso de que falle el fetch
+        console.error('Hubo un error al enviar la cita:', error);
+    }
+}
